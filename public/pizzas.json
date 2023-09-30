@@ -1,0 +1,50 @@
+[
+  {
+    "desc": "El diseño, los caracteres y las letras de las teclas revestidas y de ABS grabado moldeado por inyección no son fáciles de desvanecer. Resistente al sudor, evita daños en las teclas, mayor durabilidad y respuesta táctil.",
+    "id": "P001",
+    "img": "https://www.lenovo.com/medias/1.png?context=bWFzdGVyfHJvb3R8ODM3MDA1fGltYWdlL3BuZ3xoNDAvaDE0LzExMjM4MDAxMjc5MDA2LnBuZ3xkNmYyZjFjODQ3NjNkYWY4MjdlNDZhYjMwYWQ5MTg1ZjQyNGZjOWVmMjEwNmNlMGExOTc3YzhhYzViZDg4ZjE2",
+    "ingredients": ["mozzarella", "tomates", "jamón", "orégano"],
+    "name": "Teclado Gamer",
+    "price": 5950
+  },
+  {
+    "desc": "El mouse para juegos Lenovo™ Legion M300 RGB brinda el rendimiento, la comodidad y el control que los jugadores de nivel de entrada necesitan para jugar como profesionales",
+    "id": "P002",
+    "img": "https://www.monkeycolor.cl/cdn/shop/products/teclado-gamer-mecanico-onikuma-g27-led-rgb-teclado-onikuma-541467_5000x.jpg?v=1651164417",
+    "ingredients": ["mozzarella", "tomates", "jamón", "choricillo"],
+    "name": "Teclado game + mouse",
+    "price": 7250
+  },
+  {
+    "desc": "El mouse para juegos inalámbricos Lenovo™ Legion M600 Sports posee una batería de larga duración y de carga rápida, ideal para las exigentes sesiones de juegos.",
+    "id": "P003",
+    "img": "https://www.lenovo.com/medias/GY50X79385-mouse.png?context=bWFzdGVyfHJvb3R8OTE3NTN8aW1hZ2UvcG5nfGg0NS9oOWIvMTE2MjQ0NDQ1OTIxNTgucG5nfDA4MmUwNGYwMjk3ZDk0YWM2YzlkNDlkYTEzNjg4YzZlYjRhZWFjMDliZTQyZGVmOGVlY2VlNTgyYzAyYzVlZjk",
+    "ingredients": ["mozzarella", "tomates", "salame", "orégano"],
+    "name": "Mouse para juegos inalámbrico",
+    "price": 5990
+  },
+  {
+    "desc": "Los JBL TUNE500 ofrecen un sonido potente y de calidad para darle vida a tu día a día. Equipados con sonido JBL Pure Bass, amplificadores JBL de 32 mm y un control remoto universal de un solo botón, compatible con la mayoría de teléfonos inteligentes, estos auriculares te permiten disfrutar de un sonido de alta calidad en cualquier momento. ",
+    "id": "P004",
+    "img": "https://www.pcfactory.cl/public/foto/45771/1_1000.jpg?t=1688036086411",
+    "ingredients": ["mozzarella", "salame", "aceitunas", "champiñones"],
+    "name": "Audifonos On-ear JBL Tune 500 Azul",
+    "price": 9590
+  },
+  {
+    "desc": "Pantalla: Resolución 1920x1080, Panel VA Tecnología: Tiempo de respuesta de 5 ms, frecuencia de actualización de 60 Hz Conexiones: HDMI y VGA Perfecto para: Productividad",
+    "id": "P005",
+    "img": "https://www.pcfactory.cl/public/foto/48792/1_1000.jpg?t=1688058011889",
+    "ingredients": ["mozzarella", "tomates cherry", "bacon", "orégano"],
+    "name": "Monitor 24 Full HD, Panel VA, 60Hz (LS24A336NHLXZS)",
+    "price": 6450
+  },
+  {
+    "desc": "La forma más sencilla de agregar almacenamiento adicional de alta velocidad a tu dispositivo. La unidad flash SanDisk Ultra Shift™ USB 3.0 ofrece un rendimiento que te permite mover una película de larga duración hasta 15 veces más rápido que con las unidades estándar USB 2.0.1 Además, gracias a su diseño optimizado y compacto, puedes enchufarlo y dejarlo.",
+    "id": "P006",
+    "img": "https://www.pcfactory.cl/public/foto/42110/1_1000.jpg?t=1688013972949",
+    "ingredients": ["mozzarella", "pimientos", "pollo grillé", "orégano"],
+    "name": "Pendrive 256GB USB 3.0 Ultra Shift",
+    "price": 8500
+  }
+]

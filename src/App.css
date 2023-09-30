@@ -1,0 +1,48 @@
+.nav-spc {
+    margin-top: 56px;
+}
+
+.hd-txt-size {
+    width: 60%;
+}
+
+.hd-img {
+    background-image: url("");
+    background-color: black;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.td-none {
+    text-decoration: none;
+}
+
+.pz-li {
+    transform: rotate(-65deg);
+    margin-right: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.cust-card {
+    display: flex;
+    align-items: center;
+    border: solid 1px #0000002d;
+    border-radius: 0.375rem;
+    padding: 8px;
+}
+
+.cart-img {
+    width: auto;
+    height: 50px;
+}
+
+.badge-pos {
+    position: relative;
+    right:8px;
+    top:-12px;
+}
