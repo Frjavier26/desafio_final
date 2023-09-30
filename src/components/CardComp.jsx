@@ -26,19 +26,7 @@ const CardComp = () => {
                   {p.name}
                 </Card.Title>
                 <hr></hr>
-                {/* <Card.Subtitle className="fw-bold">Ingredientes:</Card.Subtitle> */}
-{/*                 <ul>
-                  {p.ingredients.map((ing, i) => (
-                    <li
-                      className="d-flex mt-3"
-                      style={{ textTransform: 'capitalize' }}
-                      key={i}
-                    >
-                      <div className="pz-li">🍕</div> {ing}
-                    </li>
-                  ))}
-                </ul> */}
-                <hr></hr>
+
                 <Card.Title className="text-center fs-2 my-5">
                   {formatNum(p.price)}
                 </Card.Title>

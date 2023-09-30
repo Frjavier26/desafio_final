@@ -9,6 +9,7 @@ import Detail from './views/Detail';
 import NotFound from './views/NotFound';
 import Login from "./views/Login"
 import Registro from "./views/Registro"
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Registro" element={<Registro />} />
         </Routes>
+        <Footer />
       </Provider>
     </BrowserRouter>
   );
