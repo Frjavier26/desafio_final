@@ -12,7 +12,7 @@ export default function NavbarComp() {
   const tot = cartPizzas.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
-    <Navbar bg="success" variant="dark" fixed="top">
+    <Navbar  bg="success" variant="dark" fixed="top">
       <Container>
         <Navbar.Brand href="/">
           <span><img src="/public/GameZone_transparente.png" alt="logo" /></span> 

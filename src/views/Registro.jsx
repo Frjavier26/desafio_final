@@ -1,23 +1,38 @@
-import { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-
-import { Context } from '../Context';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 
-
-import Stack from 'react-bootstrap/Stack';
-
-function VerticalExample() {
+function GridComplexExample() {
   return (
-    <Stack gap={3}>
-      <div className="p-2">First item</div>
-      <div className="p-2">Second item</div>
-      <div className="p-2">Third item</div>
-    </Stack>
+    <Form>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+      </Row>
+
+      <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Label>Nombre</Form.Label>
+        <Form.Control placeholder="Ingresa tu nombre" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Label>Apellido</Form.Label>
+        <Form.Control placeholder="Ingresa tu apellido" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
   );
 }
 
-export default VerticalExample;
+export default GridComplexExample;
