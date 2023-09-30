@@ -54,7 +54,7 @@ const Detail = () => {
                     <h3 className="my-0">Precio: {formatNum(p.price)}</h3>
                     <div>
                       <Button variant="outline-success" onClick={irAHome}>
-                        Ver otras pizzas
+                        Ver otros productos
                       </Button>
                       <Button
                         className="ms-2"

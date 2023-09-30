@@ -12,18 +12,20 @@ export default function NavbarComp() {
   const tot = cartPizzas.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
-    <Navbar  bg="success" variant="dark" fixed="top">
+    <Navbar bg="success" variant="dark" fixed="top">
       <Container>
         <Navbar.Brand href="/">
-          <span><img src="/public/GameZone_transparente.png" alt="logo" /></span> 
+          <span>
+            <img
+              src="/public/GameZone_transparente.png"
+              alt="logo"
+              className="nav-img"
+            />
+          </span>
         </Navbar.Brand>
         <Container className="text-end">
-          <NavLink to="/login">
-            Login
-          </NavLink>
-          <NavLink to="/Registro">
-            Registrate
-          </NavLink>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/Registro">Registrate</NavLink>
           <NavLink className="td-none text-white" to="/Cart">
             <FontAwesomeIcon icon={faCartShopping} />
             <Badge pill bg="warning" className="text-dark badge-pos">
