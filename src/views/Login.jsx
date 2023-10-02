@@ -1,38 +1,54 @@
-import { useEffect, useState, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
-import { Context } from '../Context';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 function BasicExample() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(false);
+
+    const validarDatos = (e) => {
+        e.preventDefault();
+        if(email === '' || password === '')
+        {
+            setError(true);
+            return;
+        }
+        setError(false);
+        setEmail('');
+        setPassword('');
+    }
+
   return (
     <Container className="nav-spc2">
-      <Form>
+      <Form onSubmit={validarDatos}>
+      {error ? <p>Todos los campos son obligatorios</p> : null}
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Label>Correo</Form.Label>
+          <input className="form-control" type='email' name="email" onChange={(e) => setEmail(e.target.value)} />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            No olvides ingresar con el correo con el cual te registraste!
           </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Label>Contraseña</Form.Label>
+          <input className="form-control" type='password' name="password" onChange={(e) => setPassword(e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          
         </Form.Group>
         <Button variant="primary" type="submit">
-          Submit
+          Ingresa
         </Button>
       </Form>
     </Container>
