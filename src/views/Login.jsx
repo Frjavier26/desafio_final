@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
+
 function BasicExample() {
 
     const [email, setEmail] = useState('');
@@ -29,6 +30,7 @@ function BasicExample() {
     }
 
   return (
+
     <Container className="nav-spc2">
       <Form onSubmit={validarDatos}>
       {error ? <p>Todos los campos son obligatorios</p> : null}
@@ -47,7 +49,7 @@ function BasicExample() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button onClick={() => navigate ("/")}variant="primary" type="submit">
           Ingresa
         </Button>
       </Form>
