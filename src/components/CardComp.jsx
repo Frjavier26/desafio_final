@@ -32,7 +32,7 @@ const CardComp = () => {
                 </Card.Title>
                 <Container fluid className="d-flex justify-content-between">
                   <Button
-                    variant="outline-success"
+                    variant="outline-warning"
                     value={p.id}
                     onClick={(e) => verDetalle(e.target.value)}
                   >
@@ -40,7 +40,7 @@ const CardComp = () => {
                     {/* <FontAwesomeIcon className="ms-2" icon={faPizzaSlice} /> */}
                   </Button>
                   <Button
-                    variant="success"
+                    variant="warning"
                     value={p.id}
                     onClick={(e) => anhadirPizza(e.target.value)}
                   >

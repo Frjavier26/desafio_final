@@ -39,7 +39,7 @@ const Cart = () => {
                         </span>
                       </div>
                       <div className="d-flex align-items-center fw-bold">
-                        <span className="text-success fw-normal">
+                        <span className="text-primary fw-normal">
                           {formatNum(p.price * p.q)}
                         </span>
                         <Button
@@ -69,15 +69,15 @@ const Cart = () => {
                 <h4>Total: {formatNum(tot)}</h4>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <Button variant="success">Ir a pagar</Button>
+                    <Button variant="info">Ir a pagar</Button>
                     <Button
-                      variant="outline-success"
+                      variant="outline-warning"
                       className="ms-2"
                       onClick={() => {
                         irAHome();
                       }}
                     >
-                      Agregar otra pizza
+                      Seguir navegando
                     </Button>
                   </div>
                   <div>
@@ -92,21 +92,21 @@ const Cart = () => {
 
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
-                        <Modal.Title>¡Pizzería Mamma Mia!</Modal.Title>
+                        <Modal.Title> 🎮 GameZone</Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
                         El carro está vacío, presiona el botón para encontrar
-                        las mejores pizzas
+                        los mejores productos para tu zona gamer
                       </Modal.Body>
                       <Modal.Footer className="d-flex justify-content-between">
                         <Button
-                          variant="success"
+                          variant="warning"
                           onClick={() => {
                             handleClose();
                             irAHome();
                           }}
                         >
-                          Ver pizzas
+                          Ver productos
                         </Button>
                         <Button variant="outline-danger" onClick={handleClose}>
                           Cerrar

@@ -4,7 +4,11 @@ import Container from 'react-bootstrap/Container';
 import Badge from 'react-bootstrap/Badge';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCartShopping,
+  faRightToBracket,
+  faUserPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { Context } from '../Context';
 
 export default function NavbarComp() {
@@ -12,7 +16,7 @@ export default function NavbarComp() {
   const tot = cartPizzas.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
-    <Navbar bg="success" variant="dark" fixed="top">
+    <Navbar bg="info" variant="dark" fixed="top">
       <Container>
         <Navbar.Brand href="/">
           <span>
@@ -24,8 +28,20 @@ export default function NavbarComp() {
           </span>
         </Navbar.Brand>
         <Container className="text-end">
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/Registro">Registrate</NavLink>
+          <NavLink to="/login" className="td-none text-white">
+            <FontAwesomeIcon icon={faRightToBracket} size="lg" />
+          </NavLink>
+          <NavLink to="/Registro">
+            <FontAwesomeIcon
+              icon={faUserPlus}
+              size="lg"
+              style={{
+                '--fa-primary-color': '#4c0075',
+                '--fa-secondary-color': '#5a007a',
+                '--fa-secondary-opacity': '0.5',
+              }}
+            />
+          </NavLink>
           <NavLink className="td-none text-white" to="/Cart">
             <FontAwesomeIcon icon={faCartShopping} />
             <Badge pill bg="warning" className="text-dark badge-pos">
