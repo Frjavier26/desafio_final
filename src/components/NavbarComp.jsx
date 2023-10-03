@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
-  faRightToBracket,
+  faUserCheck,
   faUserPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { Context } from '../Context';
@@ -28,22 +28,32 @@ export default function NavbarComp() {
           </span>
         </Navbar.Brand>
         <Container className="text-end">
-          <NavLink to="/login" className="td-none text-white">
-            <FontAwesomeIcon icon={faRightToBracket} size="lg" />
+          <NavLink to="/login">
+            <FontAwesomeIcon
+              icon={faUserCheck}
+              size="lg"
+              style={{ color: '#9434f4' }}
+            />
           </NavLink>
+          <span className="ms-2"></span>
           <NavLink to="/Registro">
             <FontAwesomeIcon
               icon={faUserPlus}
               size="lg"
-              style={{ color: '#8218ec' }}
+              style={{ color: '#9434f4' }}
             />
           </NavLink>
-          <NavLink className="td-none text-white" to="/Cart">
-            <FontAwesomeIcon icon={faCartShopping} />
-            <Badge pill bg="warning" className="text-dark badge-pos">
+          <span className="ms-3"></span>
+          <NavLink className="td-none txt-violet" to="/Cart">
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              size="lg"
+              style={{ color: '#9434f4' }}
+            />
+            <Badge pill bg="secondary" className="text-light badge-pos">
               {cartPizzas.length}
             </Badge>{' '}
-            {formatNum(tot)}
+            <strong>{formatNum(tot)}</strong>
           </NavLink>
         </Container>
       </Container>

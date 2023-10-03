@@ -10,6 +10,10 @@
     height: 40px;
 }
 
+.nav-icon-spc {
+    margin-left: 10px;
+}
+
 .hd-txt-size {
     width: 60%;
 }
@@ -54,6 +58,12 @@ ul {
     right:8px;
     top:-12px;
 }
-footer{
-    background-color: aqua;
+
+.txt-violet {
+    color:#9434f4;
+}
+
+footer {
+    background-color: #6c757d;
+    color: darkgrey;
 }

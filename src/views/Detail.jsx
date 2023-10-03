@@ -35,9 +35,14 @@ const Detail = () => {
                 </Container>
 
                 <Container>
-                  <h2 style={{ textTransform: 'capitalize' }}>{p.name}</h2>
+                  <h2
+                    className="text-secondary"
+                    style={{ textTransform: 'capitalize' }}
+                  >
+                    {p.name}
+                  </h2>
                   <hr></hr>
-                  <p>{p.desc}</p>
+                  <p className="text-secondary">{p.desc}</p>
                   {/* <h4>Ingredientes:</h4>
                   <ul>
                     {p.ingredients.map((ing, i) => (
@@ -51,7 +56,9 @@ const Detail = () => {
                     ))}
                   </ul> */}
                   <div className="d-flex justify-content-between align-items-center">
-                    <h3 className="my-0">Precio: {formatNum(p.price)}</h3>
+                    <h3 className="my-0 text-secondary">
+                      Precio: {formatNum(p.price)}
+                    </h3>
                     <div>
                       <Button variant="outline-success" onClick={irAHome}>
                         Ver otros productos

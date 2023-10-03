@@ -20,14 +20,14 @@ const CardComp = () => {
               <Card.Img variant="top" src={p.img} />
               <Card.Body>
                 <Card.Title
-                  className="fs-4"
+                  className="fs-4 text-secondary"
                   style={{ textTransform: 'capitalize' }}
                 >
                   {p.name}
                 </Card.Title>
                 <hr></hr>
 
-                <Card.Title className="text-center fs-2 my-5">
+                <Card.Title className="text-center fs-2 my-5 text-secondary">
                   {formatNum(p.price)}
                 </Card.Title>
                 <Container fluid className="d-flex justify-content-between">
