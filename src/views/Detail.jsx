@@ -60,12 +60,12 @@ const Detail = () => {
                       Precio: {formatNum(p.price)}
                     </h3>
                     <div>
-                      <Button variant="outline-success" onClick={irAHome}>
+                      <Button variant="outline-warning" onClick={irAHome}>
                         Ver otros productos
                       </Button>
                       <Button
                         className="ms-2"
-                        variant="success"
+                        variant="warning"
                         value={p.id}
                         onClick={(e) => {
                           anhadirPizza(e.target.value);
@@ -84,24 +84,30 @@ const Detail = () => {
                       keyboard={false}
                     >
                       <Modal.Header closeButton>
-                        <Modal.Title>¡Pizzería Mamma Mia!</Modal.Title>
+                        <Modal.Title>
+                          <img
+                            src="/GameZone_transparente.png"
+                            alt="GameZone logo"
+                            className="nav-img"
+                          />
+                        </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
-                        Agregaste la pizza {formatText(p.name)}
+                        Agregaste el producto {formatText(p.name)}
                       </Modal.Body>
                       <Modal.Footer className="d-flex justify-content-between">
                         <div>
                           <Button
-                            variant="success"
+                            variant="warning"
                             onClick={() => {
                               handleClose();
                               irAHome();
                             }}
                           >
-                            Ver pizzas
+                            Ver productos
                           </Button>
                           <Button
-                            variant="outline-success"
+                            variant="outline-info"
                             className="ms-2"
                             onClick={() => {
                               handleClose();

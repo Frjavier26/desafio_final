@@ -34,12 +34,15 @@ const Cart = () => {
                     <Container className="d-flex justify-content-between align-items-center">
                       <div>
                         <Image className="cart-img me-2" src={p.img} rounded />{' '}
-                        <span style={{ textTransform: 'capitalize' }}>
+                        <span
+                          style={{ textTransform: 'capitalize' }}
+                          className="text-secondary"
+                        >
                           {p.name}
                         </span>
                       </div>
                       <div className="d-flex align-items-center fw-bold">
-                        <span className="text-primary fw-normal">
+                        <span className="txt-violet fw-normal">
                           {formatNum(p.price * p.q)}
                         </span>
                         <Button
@@ -65,8 +68,8 @@ const Cart = () => {
                 );
               })}
 
-              <ListGroupItem className="py-3">
-                <h4>Total: {formatNum(tot)}</h4>
+              <ListGroupItem className="py-3 text-end">
+                <h4 className="txt-violet me-3">Total: {formatNum(tot)}</h4>
                 <div className="d-flex justify-content-between">
                   <div>
                     <Button variant="info">Ir a pagar</Button>
@@ -92,11 +95,17 @@ const Cart = () => {
 
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
-                        <Modal.Title> 🎮 GameZone</Modal.Title>
+                        <Modal.Title>
+                          <img
+                            src="/GameZone_transparente.png"
+                            alt="GameZone logo"
+                            className="nav-img"
+                          />
+                        </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
-                        El carro está vacío, presiona el botón para encontrar
-                        los mejores productos para tu zona gamer
+                        El carro está vacío, presiona el botón "Ver productos"
+                        para encontrar los mejores productos para tu zona gamer
                       </Modal.Body>
                       <Modal.Footer className="d-flex justify-content-between">
                         <Button

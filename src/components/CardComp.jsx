@@ -17,17 +17,19 @@ const CardComp = () => {
         {data.map((p) => (
           <Col key={p.id}>
             <Card>
-              <Card.Img variant="top" src={p.img} />
+              <Container className="card-img-cont d-flex justify-content-center align-items-center">
+                <Card.Img className="card-img" variant="top" src={p.img} />
+              </Container>
               <Card.Body>
                 <Card.Title
-                  className="fs-4 text-secondary"
+                  className="fs-5 text-secondary"
                   style={{ textTransform: 'capitalize' }}
                 >
                   {p.name}
                 </Card.Title>
                 <hr></hr>
 
-                <Card.Title className="text-center fs-2 my-5 text-secondary">
+                <Card.Title className="text-center fs-4 my-5 text-secondary">
                   {formatNum(p.price)}
                 </Card.Title>
                 <Container fluid className="d-flex justify-content-between">
@@ -36,8 +38,7 @@ const CardComp = () => {
                     value={p.id}
                     onClick={(e) => verDetalle(e.target.value)}
                   >
-                    Ver más{'  '}
-                    {/* <FontAwesomeIcon className="ms-2" icon={faPizzaSlice} /> */}
+                    Ver más
                   </Button>
                   <Button
                     variant="warning"

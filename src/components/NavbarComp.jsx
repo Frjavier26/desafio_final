@@ -22,7 +22,7 @@ export default function NavbarComp() {
           <span>
             <img
               src="/GameZone_transparente.png"
-              alt="logo"
+              alt="GameZone logo"
               className="nav-img"
             />
           </span>
@@ -32,7 +32,7 @@ export default function NavbarComp() {
             <FontAwesomeIcon
               icon={faUserCheck}
               size="lg"
-              style={{ color: '#9434f4' }}
+              style={{ color: '#8a2be2' }}
             />
           </NavLink>
           <span className="ms-2"></span>
@@ -40,7 +40,7 @@ export default function NavbarComp() {
             <FontAwesomeIcon
               icon={faUserPlus}
               size="lg"
-              style={{ color: '#9434f4' }}
+              style={{ color: '#8a2be2' }}
             />
           </NavLink>
           <span className="ms-3"></span>
@@ -48,7 +48,7 @@ export default function NavbarComp() {
             <FontAwesomeIcon
               icon={faCartShopping}
               size="lg"
-              style={{ color: '#9434f4' }}
+              style={{ color: '#8a2be2' }}
             />
             <Badge pill bg="secondary" className="text-light badge-pos">
               {cartPizzas.length}

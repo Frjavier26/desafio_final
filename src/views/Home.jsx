@@ -9,9 +9,12 @@ const Home = () => {
         <Container className="hd-img">
           <Col></Col>
           <Col className="align-center" md="auto">
-            <div className="d-flex flex-column text-white justify-content-center hd-txt-size">
-              <h1 className="pt-5">¡GameZone!</h1>
-              <p>¡Diviertete comprando!</p>
+            <div className="d-flex flex-column justify-content-center hd-txt">
+              <h1 className="pt-5">Bienvenido a tu zona gamer</h1>
+              <strong>
+                <p>Encuentra todo lo que necesitas para equiparte y</p>
+                <p>¡Diviértete comprando!</p>
+              </strong>
               <hr></hr>
             </div>
           </Col>

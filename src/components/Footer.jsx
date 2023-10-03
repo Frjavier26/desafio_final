@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container-fluid text-center text-md-left">
       <div className="row">
         <div className="col-md-6 mt-md-0 mt-3">
-          <h5 className="text-uppercase">GameZone</h5>
+          <h5>GameZone</h5>
           <p>La mejor pagina de accesorios del mundo mundial.</p>
         </div>
 
@@ -14,7 +14,9 @@ const Footer = () => (
         <div className="col-md-3 mb-md-0 mb-3">
           <ul className="list-unstyled">
             <li>
-              <a href="#!">Quienes somos!?</a>
+              <a href="#!" className="td-none text-dark">
+                Quiénes somos
+              </a>
             </li>
           </ul>
         </div>
@@ -22,7 +24,9 @@ const Footer = () => (
         <div className="col-md-3 mb-md-0 mb-3">
           <ul className="list-unstyled">
             <li>
-              <a href="#!">Contactanos!</a>
+              <a href="#!" className="td-none text-dark">
+                Contacto
+              </a>
             </li>
           </ul>
         </div>
@@ -31,7 +35,10 @@ const Footer = () => (
 
     <div className="footer-copyright text-center py-3">
       © 2020 Copyright:
-      <a href="https://google.com/"> Gamezone.com</a>
+      <a href="https://google.com/" className="td-none text-dark">
+        {' '}
+        Gamezone.com
+      </a>
     </div>
   </footer>
 );

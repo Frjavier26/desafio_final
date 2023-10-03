@@ -14,13 +14,15 @@
     margin-left: 10px;
 }
 
-.hd-txt-size {
+.hd-txt {
     width: 60%;
+    color: gold;
+    text-shadow: 3px 3px 5px black;
 }
 
 .hd-img {
-    background-image: url("");
-    background-color: black;
+    background-image: url("https://imageio.forbes.com/specials-images/imageserve/64aceb40d0ea591fa2edfb01/0x0.jpg?format=jpg&width=1200");
+    opacity: 1;
     height: 250px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -48,6 +50,16 @@ ul {
     padding: 8px;
 }
 
+.card-img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.card-img-cont {
+    width: 280px;
+    height: 280px;
+}
+
 .cart-img {
     width: auto;
     height: 50px;
@@ -60,10 +72,14 @@ ul {
 }
 
 .txt-violet {
-    color:#9434f4;
+    color: blueviolet;
 }
 
 footer {
     background-color: #6c757d;
+    color: darkgrey;
+}
+
+a {
     color: darkgrey;
 }
