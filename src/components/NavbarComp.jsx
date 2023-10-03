@@ -21,7 +21,7 @@ export default function NavbarComp() {
         <Navbar.Brand href="/">
           <span>
             <img
-              src="/public/GameZone_transparente.png"
+              src="/GameZone_transparente.png"
               alt="logo"
               className="nav-img"
             />
@@ -35,11 +35,7 @@ export default function NavbarComp() {
             <FontAwesomeIcon
               icon={faUserPlus}
               size="lg"
-              style={{
-                '--fa-primary-color': '#4c0075',
-                '--fa-secondary-color': '#5a007a',
-                '--fa-secondary-opacity': '0.5',
-              }}
+              style={{ color: '#8218ec' }}
             />
           </NavLink>
           <NavLink className="td-none text-white" to="/Cart">
