@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Badge from 'react-bootstrap/Badge';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -29,19 +31,29 @@ export default function NavbarComp() {
         </Navbar.Brand>
         <Container className="text-end">
           <NavLink to="/login">
-            <FontAwesomeIcon
-              icon={faUserCheck}
-              size="lg"
-              style={{ color: '#8a2be2' }}
-            />
+            <OverlayTrigger
+              placement="bottom"
+              overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
+            >
+              <FontAwesomeIcon
+                icon={faUserCheck}
+                size="lg"
+                style={{ color: '#8a2be2' }}
+              />
+            </OverlayTrigger>
           </NavLink>
           <span className="ms-2"></span>
           <NavLink to="/Registro">
-            <FontAwesomeIcon
-              icon={faUserPlus}
-              size="lg"
-              style={{ color: '#8a2be2' }}
-            />
+            <OverlayTrigger
+              placement="bottom"
+              overlay={<Tooltip id="tootip-gz">Registrarse</Tooltip>}
+            >
+              <FontAwesomeIcon
+                icon={faUserPlus}
+                size="lg"
+                style={{ color: '#8a2be2' }}
+              />
+            </OverlayTrigger>
           </NavLink>
           <span className="ms-3"></span>
           <NavLink className="td-none txt-violet" to="/Cart">
