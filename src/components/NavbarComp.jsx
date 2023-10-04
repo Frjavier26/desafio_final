@@ -46,7 +46,7 @@ export default function NavbarComp() {
           <NavLink to="/Registro">
             <OverlayTrigger
               placement="bottom"
-              overlay={<Tooltip id="tootip-gz">Registrarse</Tooltip>}
+              overlay={<Tooltip id="tooltip-gz">Registrarse</Tooltip>}
             >
               <FontAwesomeIcon
                 icon={faUserPlus}

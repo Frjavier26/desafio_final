@@ -83,3 +83,7 @@ footer {
 a {
     color: darkgrey;
 }
+
+#tooltip-gz > .tooltip-inner {
+    background-color: #6c757d;
+}
