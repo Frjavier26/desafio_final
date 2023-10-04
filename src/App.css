@@ -87,3 +87,7 @@ a {
 #tooltip-gz > .tooltip-inner {
     background-color: #6c757d;
 }
+
+.active {
+    color: rgb(237, 105, 22);
+    }

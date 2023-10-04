@@ -14,6 +14,7 @@ import {
 import { Context } from '../Context';
 
 export default function NavbarComp() {
+  const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
   const { cartPizzas, formatNum } = useContext(Context);
   const tot = cartPizzas.reduce((prev, { price, q }) => prev + price * q, 0);
 
@@ -30,7 +31,7 @@ export default function NavbarComp() {
           </span>
         </Navbar.Brand>
         <Container className="text-end">
-          <NavLink to="/login">
+          <NavLink className={ setActiveClass } to="/login">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
@@ -38,12 +39,12 @@ export default function NavbarComp() {
               <FontAwesomeIcon
                 icon={faUserCheck}
                 size="lg"
-                style={{ color: '#8a2be2' }}
+                /*style={{ color: '#8a2be2' }}*/
               />
             </OverlayTrigger>
           </NavLink>
           <span className="ms-2"></span>
-          <NavLink to="/Registro">
+          <NavLink className={ setActiveClass } to="/Registro">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Registrarse</Tooltip>}
@@ -51,16 +52,16 @@ export default function NavbarComp() {
               <FontAwesomeIcon
                 icon={faUserPlus}
                 size="lg"
-                style={{ color: '#8a2be2' }}
+                /*style={{ color: '#8a2be2' }}*/
               />
             </OverlayTrigger>
           </NavLink>
           <span className="ms-3"></span>
-          <NavLink className="td-none txt-violet" to="/Cart">
+          <NavLink className={ setActiveClass } to="/Cart">
             <FontAwesomeIcon
               icon={faCartShopping}
               size="lg"
-              style={{ color: '#8a2be2' }}
+              /* style={{ color: '#8a2be2' }} */
             />
             <Badge pill bg="secondary" className="text-light badge-pos">
               {cartPizzas.length}
