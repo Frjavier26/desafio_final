@@ -10,6 +10,7 @@ import NotFound from './views/NotFound';
 import Login from "./views/Login"
 import Registro from "./views/Registro"
 import Footer from './components/Footer';
+import Admin from './views/Admin';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Registro" element={<Registro />} />
+          <Route path="/Admin" element={<Admin />} />
         </Routes>
         <Footer />
       </Provider>

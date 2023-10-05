@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
@@ -8,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-function BasicExample() {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -22,6 +23,8 @@ function BasicExample() {
     setError(false);
     setEmail('');
     setPassword('');
+
+
   };
 
   return (
@@ -51,12 +54,22 @@ function BasicExample() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
-        <Button onClick={() => navigate('/')} variant="info" type="submit">
-          Ingresa
-        </Button>
+
+        <NavLink to={"/"}>
+
+          <Button className='btn-detail m-2 ps-2 pe-2 pb-1 pt-1' >Ingresa</Button>
+
+        </NavLink>
+
+        <NavLink to={"/Admin"}>
+
+          <Button className='btn-detail m-2 ps-2 pe-2 pb-1 pt-1' >Ingresa como admin</Button>
+
+        </NavLink>
+
       </Form>
     </Container>
   );
 }
 
-export default BasicExample;
+export default Login;

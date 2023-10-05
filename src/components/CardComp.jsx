@@ -4,12 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../Context';
 
 const CardComp = () => {
-  const { data, verDetalle, anhadirPizza, formatNum } = useContext(Context);
+  const { data, verDetalle, addProduct, formatNum } = useContext(Context);
 
   return (
     <>
@@ -17,31 +16,30 @@ const CardComp = () => {
         {data.map((p) => (
           <Col key={p.id}>
             <Card>
-              <Container className="card-img-cont d-flex justify-content-center align-items-center">
-                <Card.Img className="card-img" variant="top" src={p.img} />
-              </Container>
+              <Card.Img variant="top" src={p.img} />
               <Card.Body>
                 <Card.Title
-                  className="fs-5 text-secondary"
+                  className="fs-4"
                   style={{ textTransform: 'capitalize' }}
                 >
                   {p.name}
                 </Card.Title>
                 <hr></hr>
 
-                <Card.Title className="text-center fs-4 my-5 text-secondary">
+                <Card.Title className="text-center fs-2 my-5">
                   {formatNum(p.price)}
                 </Card.Title>
                 <Container fluid className="d-flex justify-content-between">
                   <Button
-                    variant="outline-warning"
+                    variant="outline-success"
                     value={p.id}
                     onClick={(e) => verDetalle(e.target.value)}
                   >
-                    Ver más
+                    Ver más{'  '}
+                    {/* <FontAwesomeIcon className="ms-2" icon={faPizzaSlice} /> */}
                   </Button>
                   <Button
-                    variant="warning"
+                    variant="success"
                     value={p.id}
                     onClick={(e) => anhadirPizza(e.target.value)}
                   >
