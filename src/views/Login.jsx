@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from "react-router-dom"
+import { NavLink } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
@@ -23,8 +23,6 @@ function Login() {
     setError(false);
     setEmail('');
     setPassword('');
-
-
   };
 
   return (
@@ -55,18 +53,22 @@ function Login() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
 
-        <NavLink to={"/"}>
-
-          <Button className='btn-detail m-2 ps-2 pe-2 pb-1 pt-1' >Ingresa</Button>
-
+        <NavLink to={'/'}>
+          <Button
+            className="btn-detail m-2 ps-2 pe-2 pb-1 pt-1"
+            variant="info"
+            type="submit"
+            onClick={() => Navigate('/')}
+          >
+            Ingresa
+          </Button>
         </NavLink>
 
-        <NavLink to={"/Admin"}>
-
-          <Button className='btn-detail m-2 ps-2 pe-2 pb-1 pt-1' >Ingresa como admin</Button>
-
+        <NavLink to={'/Admin'}>
+          <Button className="btn-detail m-2 ps-2 pe-2 pb-1 pt-1">
+            Ingresa como admin
+          </Button>
         </NavLink>
-
       </Form>
     </Container>
   );
