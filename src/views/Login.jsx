@@ -52,7 +52,7 @@ function Login() {
 
         <NavLink to={'/'}>
           <Button
-            className="btn-detail m-2 ps-2 pe-2 pb-1 pt-1"
+            className="btn-detail m-2 px-2 py-1"
             variant="info"
             type="submit"
             onClick={() => Navigate('/')}
@@ -61,8 +61,8 @@ function Login() {
           </Button>
         </NavLink>
 
-        <NavLink to={'/Admin'}>
-          <Button className="btn-detail m-2 ps-2 pe-2 pb-1 pt-1">
+        <NavLink to={'/admin'}>
+          <Button className="btn-detail m-2 px-2 py-1">
             Ingresa como admin
           </Button>
         </NavLink>
