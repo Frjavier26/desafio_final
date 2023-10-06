@@ -6,14 +6,14 @@ export const Context = createContext();
 export const Provider = ({ children }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const [selectedPizza, setSelectedPizza] = useState([]);
-  const [cartPizzas, setCartPizzas] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState([]);
+  const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const endpoint = '/pizzas.json';
+  const endpoint = '/productos.json';
 
-  const getPizzas = async () => {
+  const getProducts = async () => {
     const resp = await fetch(endpoint);
     const dat = await resp.json();
     setData(dat);
@@ -21,26 +21,26 @@ export const Provider = ({ children }) => {
 
   useEffect(() => {
     return () => {
-      getPizzas();
+      getProducts();
     };
   }, []);
 
   function verDetalle(pid) {
-    const filteredPizza = data.filter((el) => el.id === pid);
+    const filteredProduct = data.filter((el) => el.id === pid);
     return (
-      setSelectedPizza([filteredPizza[0]]),
-      navigate(`/pizza/${filteredPizza[0].id}`)
+      setSelectedProduct([filteredProduct[0]]),
+      navigate(`/productos/${filteredProduct[0].id}`)
     );
   }
 
-  const anhadirPizza = (pid) => {
-    const addedPizza = data
+  const addProduct = (pid) => {
+    const addedProduct = data
       .filter((el) => el.id === pid)
       .map((p) => {
         return { id: p.id, img: p.img, name: p.name, price: p.price, q: 1 };
       });
 
-    const exists = cartPizzas.some((el) => {
+    const exists = cart.some((el) => {
       if (el.id === pid) {
         return true;
       } else {
@@ -50,16 +50,16 @@ export const Provider = ({ children }) => {
 
     exists
       ? addQ(pid)
-      : cartPizzas.length === 0
-      ? setCartPizzas([addedPizza[0]])
-      : setCartPizzas([...cartPizzas, addedPizza[0]]);
+      : cart.length === 0
+      ? setCart([addedProduct[0]])
+      : setCart([...cart, addedProduct[0]]);
   };
 
   function emptyCart() {
-    if (cartPizzas.length === 0) {
+    if (cart.length === 0) {
       handleShow();
     } else {
-      setCartPizzas([]);
+      setCart([]);
       handleShow();
     }
   }
@@ -73,19 +73,19 @@ export const Provider = ({ children }) => {
   }
 
   const addQ = (pid) => {
-    const idx = cartPizzas.findIndex((el) => el.id === pid);
-    cartPizzas[idx].q++;
-    setCartPizzas([...cartPizzas]);
+    const idx = cart.findIndex((el) => el.id === pid);
+    cart[idx].q++;
+    setCart([...cart]);
   };
 
   const rmvQ = (pid) => {
-    const idx = cartPizzas.findIndex((el) => el.id === pid);
-    if (cartPizzas[idx].q === 1) {
-      const newArr = cartPizzas.filter((el) => el.id !== pid);
-      return setCartPizzas([...newArr]);
+    const idx = cart.findIndex((el) => el.id === pid);
+    if (cart[idx].q === 1) {
+      const newArr = cart.filter((el) => el.id !== pid);
+      return setCart([...newArr]);
     } else {
-      cartPizzas[idx].q--;
-      setCartPizzas([...cartPizzas]);
+      cart[idx].q--;
+      setCart([...cart]);
     }
   };
 
@@ -106,9 +106,9 @@ export const Provider = ({ children }) => {
   const globalState = {
     data,
     verDetalle,
-    selectedPizza,
-    anhadirPizza,
-    cartPizzas,
+    selectedProduct,
+    addProduct,
+    cart,
     irAHome,
     emptyCart,
     formatNum,

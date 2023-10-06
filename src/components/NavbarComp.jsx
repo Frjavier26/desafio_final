@@ -14,14 +14,19 @@ import {
 import { Context } from '../Context';
 
 export default function NavbarComp() {
-  const setActiveClass = ({ isActive }) => (isActive ? "active" : undefined);
-  const { cartPizzas, formatNum } = useContext(Context);
-  const tot = cartPizzas.reduce((prev, { price, q }) => prev + price * q, 0);
+  const setActiveClass = ({ isActive }) =>
+    isActive ? 'active' : 'td-none txt-violet';
+  const { cart, formatNum, irAHome } = useContext(Context);
+  const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
     <Navbar bg="info" variant="dark" fixed="top">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand
+          onClick={() => {
+            irAHome();
+          }}
+        >
           <span>
             <img
               src="/GameZone_transparente.png"
@@ -31,40 +36,28 @@ export default function NavbarComp() {
           </span>
         </Navbar.Brand>
         <Container className="text-end">
-          <NavLink className={ setActiveClass } to="/login">
+          <NavLink className={setActiveClass} to="/login">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
             >
-              <FontAwesomeIcon
-                icon={faUserCheck}
-                size="lg"
-                /*style={{ color: '#8a2be2' }}*/
-              />
+              <FontAwesomeIcon icon={faUserCheck} size="lg" />
             </OverlayTrigger>
           </NavLink>
           <span className="ms-2"></span>
-          <NavLink className={ setActiveClass } to="/Registro">
+          <NavLink className={setActiveClass} to="/Registro">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Registrarse</Tooltip>}
             >
-              <FontAwesomeIcon
-                icon={faUserPlus}
-                size="lg"
-                /*style={{ color: '#8a2be2' }}*/
-              />
+              <FontAwesomeIcon icon={faUserPlus} size="lg" />
             </OverlayTrigger>
           </NavLink>
           <span className="ms-3"></span>
-          <NavLink className={ setActiveClass } to="/Cart">
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              size="lg"
-              /* style={{ color: '#8a2be2' }} */
-            />
+          <NavLink className={setActiveClass} to="/Cart">
+            <FontAwesomeIcon icon={faCartShopping} size="lg" />
             <Badge pill bg="secondary" className="text-light badge-pos">
-              {cartPizzas.length}
+              {cart.length}
             </Badge>{' '}
             <strong>{formatNum(tot)}</strong>
           </NavLink>

@@ -4,13 +4,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../Context';
 
 const CardComp = () => {
-  const { data, verDetalle, addProduct, anhadirPizza, formatNum } =
-    useContext(Context);
+  const { data, verDetalle, addProduct, formatNum } = useContext(Context);
 
   return (
     <>
@@ -44,7 +43,7 @@ const CardComp = () => {
                   <Button
                     variant="warning"
                     value={p.id}
-                    onClick={(e) => anhadirPizza(e.target.value)}
+                    onClick={(e) => addProduct(e.target.value)}
                   >
                     Añadir{'   '}
                     <FontAwesomeIcon className="ms-2" icon={faCartPlus} />

@@ -1,8 +1,18 @@
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import Image from 'react-bootstrap/Image';
+import { useContext } from 'react';
+import { Context } from '../Context';
+import { Container } from 'react-bootstrap';
 
 const Admin = () => {
   const {
-    selectedPizza,
-    anhadirPizza,
+    selectedProduct,
+    addProduct,
     formatNum,
     show,
     handleClose,
@@ -17,7 +27,7 @@ const Admin = () => {
       <Row>
         <Col></Col>
         <Col md="auto">
-          {selectedPizza.map((p) => {
+          {selectedProduct.map((p) => {
             return (
               <Container className="cust-card" key={p.id}>
                 <Container>
@@ -58,7 +68,7 @@ const Admin = () => {
                         variant="warning"
                         value={p.id}
                         onClick={(e) => {
-                          anhadirPizza(e.target.value);
+                          addProduct(e.target.value);
                           handleShow();
                         }}
                       >

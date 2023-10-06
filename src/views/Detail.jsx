@@ -11,8 +11,8 @@ import { Context } from '../Context';
 
 const Detail = () => {
   const {
-    selectedPizza,
-    anhadirPizza,
+    selectedProduct,
+    addProduct,
     formatNum,
     show,
     handleClose,
@@ -27,7 +27,7 @@ const Detail = () => {
       <Row>
         <Col></Col>
         <Col md="auto">
-          {selectedPizza.map((p) => {
+          {selectedProduct.map((p) => {
             return (
               <Container className="cust-card" key={p.id}>
                 <Container>
@@ -43,32 +43,24 @@ const Detail = () => {
                   </h2>
                   <hr></hr>
                   <p className="text-secondary">{p.desc}</p>
-                  {/* <h4>Ingredientes:</h4>
-                  <ul>
-                    {p.ingredients.map((ing, i) => (
-                      <li
-                        className="d-flex mt-3"
-                        style={{ textTransform: 'capitalize' }}
-                        key={i}
-                      >
-                        <div className="pz-li">🍕</div> {ing}
-                      </li>
-                    ))}
-                  </ul> */}
                   <div className="d-flex justify-content-between align-items-center">
-                    <h3 className="my-0 text-secondary">
+                    <h3 className="my-2 me-2 text-secondary">
                       Precio: {formatNum(p.price)}
                     </h3>
                     <div>
-                      <Button variant="outline-warning" onClick={irAHome}>
+                      <Button
+                        className="m-2"
+                        variant="outline-warning"
+                        onClick={irAHome}
+                      >
                         Ver otros productos
                       </Button>
                       <Button
-                        className="ms-2"
+                        className="m-2"
                         variant="warning"
                         value={p.id}
                         onClick={(e) => {
-                          anhadirPizza(e.target.value);
+                          addProduct(e.target.value);
                           handleShow();
                         }}
                       >

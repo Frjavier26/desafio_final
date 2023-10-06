@@ -7,8 +7,8 @@ import Cart from './views/Cart';
 import Home from './views/Home';
 import Detail from './views/Detail';
 import NotFound from './views/NotFound';
-import Login from "./views/Login"
-import Registro from "./views/Registro"
+import Login from './views/Login';
+import Registro from './views/Registro';
 import Footer from './components/Footer';
 import Admin from './views/Admin';
 
@@ -21,11 +21,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/pizza/:id" element={<Detail />} />
+          <Route path="/productos/:id" element={<Detail />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Registro" element={<Registro />} />
-          <Route path="/Admin" element={<Admin />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />
       </Provider>

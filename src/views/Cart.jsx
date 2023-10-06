@@ -8,18 +8,10 @@ import { useContext } from 'react';
 import { Context } from '../Context';
 
 const Cart = () => {
-  const {
-    cartPizzas,
-    irAHome,
-    emptyCart,
-    show,
-    handleClose,
-    formatNum,
-    addQ,
-    rmvQ,
-  } = useContext(Context);
+  const { cart, irAHome, emptyCart, show, handleClose, formatNum, addQ, rmvQ } =
+    useContext(Context);
 
-  const tot = cartPizzas.reduce((prev, { price, q }) => prev + price * q, 0);
+  const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
     <>
@@ -28,21 +20,29 @@ const Cart = () => {
           <Container>
             <h5>Detalles del pedido:</h5>
             <ListGroup variant="flush">
-              {cartPizzas.map((p) => {
+              {cart.map((p) => {
                 return (
-                  <ListGroup.Item key={p.id}>
-                    <Container className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <Image className="cart-img me-2" src={p.img} rounded />{' '}
-                        <span
-                          style={{ textTransform: 'capitalize' }}
-                          className="text-secondary"
-                        >
-                          {p.name}
-                        </span>
+                  <ListGroup.Item className="px-0" key={p.id}>
+                    <Container className="p-0 d-flex justify-content-between align-items-center">
+                      <div className="d-flex align-items-center">
+                        <div>
+                          <Image
+                            className="cart-img mx-2"
+                            src={p.img}
+                            rounded
+                          />
+                        </div>
+                        <div>
+                          <span
+                            style={{ textTransform: 'capitalize' }}
+                            className="me-2 text-secondary"
+                          >
+                            {p.name}
+                          </span>
+                        </div>
                       </div>
                       <div className="d-flex align-items-center fw-bold">
-                        <span className="txt-violet fw-normal">
+                        <span className="mx-2 txt-violet fw-normal">
                           {formatNum(p.price * p.q)}
                         </span>
                         <Button
@@ -69,7 +69,9 @@ const Cart = () => {
               })}
 
               <ListGroupItem className="py-3 text-end">
-                <h4 className="txt-violet me-3">Total: {formatNum(tot)}</h4>
+                <h4 className="txt-violet me-3 mb-5">
+                  Total: {formatNum(tot)}
+                </h4>
                 <div className="d-flex justify-content-between">
                   <div>
                     <Button variant="info">Ir a pagar</Button>

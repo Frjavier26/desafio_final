@@ -51,8 +51,8 @@ ul {
 }
 
 .card-img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 280px;
+    max-height: 280px;
 }
 
 .card-img-cont {
@@ -89,5 +89,10 @@ a {
 }
 
 .active {
-    color: rgb(237, 105, 22);
-    }
+    color: gold;
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+}
