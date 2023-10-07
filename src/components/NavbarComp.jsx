@@ -20,7 +20,7 @@ export default function NavbarComp() {
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
-    <Navbar bg="info" variant="dark" fixed="top">
+    <Navbar bg="info" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand
           onClick={() => {
