@@ -62,9 +62,7 @@ function Login() {
         </NavLink>
 
         <NavLink to={'/admin'}>
-          <Button className="btn-detail m-2 px-2 py-1">
-            Ingresa como admin
-          </Button>
+        <Button variant="outline-info">Ingresar como Admin</Button>{' '}
         </NavLink>
       </Form>
     </Container>
