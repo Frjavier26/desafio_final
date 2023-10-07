@@ -6,19 +6,26 @@ import Container from 'react-bootstrap/esm/Container';
 
 function LeftTabsExample() {
   return (
-    <Container className="admincss">
+    <Container>
+
+      <Container>
+<div className="welcome">
+        <h1 >Bienvenido Nombre e email</h1>
+        </div>
+      </Container>
+<div className="btn-admin">
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
       <Row>
         <Col sm={3}>
           <Nav variant="pills" className="flex-column">
         
-            <Nav.Item>
-              <Nav.Link eventKey="second">Perfil</Nav.Link>
+            <Nav.Item className="nav-adm">
+              <Nav.Link eventKey="second">Dashboard</Nav.Link>
               <Nav.Item>
-              <Nav.Link eventKey="second"> Productos</Nav.Link>
+              <Nav.Link eventKey="second"> Editar perfil</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second">Tab 2</Nav.Link>
+              <Nav.Link eventKey="second">Favoritos</Nav.Link>
             </Nav.Item>
             </Nav.Item>
           </Nav>
@@ -27,7 +34,7 @@ function LeftTabsExample() {
   
         </Col>
       </Row>
-    </Tab.Container>
+    </Tab.Container></div>
     </Container>
   );
 }

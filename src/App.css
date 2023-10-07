@@ -11,7 +11,7 @@
 }
 
 .nav-icon-spc {
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .hd-txt {
@@ -72,7 +72,7 @@ ul {
 }
 
 .txt-violet {
-    color: blueviolet;
+    color: #8a2be2;
 }
 
 footer {
@@ -102,4 +102,24 @@ body {
 a{ 
     margin :30px;
  
+}
+
+.welcome {
+padding: 10px;
+    text-align: center;
+    margin-left: 0px;
+    color:#8a2be2;
+   
+    background-color: rgb(177, 237, 255);
+}
+
+.flex-column{
+    background-color: rgb(177, 237, 255);
+    height: 1000px;
+    margin: 10px;
+    border-color: black ,solid ,3;
+}
+
+nav-adm{
+    color: blanchedalmond;
 }
