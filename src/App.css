@@ -113,13 +113,10 @@ padding: 10px;
     background-color: rgb(177, 237, 255);
 }
 
-.flex-column{
-    background-color: rgb(177, 237, 255);
-    height: 1000px;
-    margin: 10px;
-    border-color: black ,solid ,3;
-}
+.buttons { 
 
-nav-adm{
-    color: blanchedalmond;
+    margin-left: 10px;
+    width: 185px ;
+    margin: 20px;
+    padding: 0;
 }

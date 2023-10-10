@@ -10,7 +10,8 @@ function LeftTabsExample() {
 
       <Container>
 <div className="welcome">
-        <h1 >Bienvenido Nombre e email</h1>
+        <h2 >¡Bienvenid@!*Nombre*</h2>
+        <h3>*email*</h3>
         </div>
       </Container>
 <div className="btn-admin">
@@ -20,13 +21,14 @@ function LeftTabsExample() {
           <Nav variant="pills" className="flex-column">
         
             <Nav.Item className="nav-adm">
-              <Nav.Link eventKey="second">Dashboard</Nav.Link>
+           <div className="buttons"> 
+             <button> <Nav.Link > Dashboard</Nav.Link></button>
               <Nav.Item>
-              <Nav.Link eventKey="second"> Editar perfil</Nav.Link>
+              <button> <Nav.Link > Editar perfil</Nav.Link></button>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second">Favoritos</Nav.Link>
-            </Nav.Item>
+            <button> <Nav.Link > Favoritos</Nav.Link></button>
+            </Nav.Item></div>  
             </Nav.Item>
           </Nav>
         </Col>
