@@ -31,7 +31,7 @@ const Detail = () => {
             return (
               <Container className="cust-card" key={p.id}>
                 <Container>
-                  <Image src={p.img} rounded fluid />
+                  <Image src={p.url_imagen} rounded fluid />
                 </Container>
 
                 <Container>
@@ -39,13 +39,13 @@ const Detail = () => {
                     className="text-secondary"
                     style={{ textTransform: 'capitalize' }}
                   >
-                    {p.name}
+                    {p.nombre_producto}
                   </h2>
                   <hr></hr>
                   <p className="text-secondary">{p.desc}</p>
                   <div className="d-flex justify-content-between align-items-center">
                     <h3 className="my-2 me-2 text-secondary">
-                      Precio: {formatNum(p.price)}
+                      Precio: {formatNum(p.precio)}
                     </h3>
                     <div>
                       <Button
@@ -85,7 +85,7 @@ const Detail = () => {
                         </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
-                        Agregaste el producto {formatText(p.name)}
+                        Agregaste el producto {formatText(p.nombre_producto)}
                       </Modal.Body>
                       <Modal.Footer className="d-flex justify-content-between">
                         <div>

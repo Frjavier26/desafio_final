@@ -9,28 +9,33 @@ import { useContext } from 'react';
 import { Context } from '../Context';
 
 const CardComp = () => {
-  const { data, verDetalle, addProduct, formatNum } = useContext(Context);
+  const { datos, verDetalle, addProduct, formatNum } = useContext(Context);
 
   return (
     <>
       <Row xs={1} md={2} xl={3} xxl={4} className="g-4">
-        {data.map((p) => (
+        {datos.map((p) => (
           <Col key={p.id}>
             <Card>
               <Container className="card-img-cont d-flex justify-content-center align-items-center">
-                <Card.Img className="card-img" variant="top" src={p.img} />
+                <Card.Img
+                  className="card-img"
+                  variant="top"
+                  src={p.url_imagen}
+                  alt={p.nombre_producto}
+                />
               </Container>
               <Card.Body>
                 <Card.Title
                   className="fs-5 text-secondary"
                   style={{ textTransform: 'capitalize' }}
                 >
-                  {p.name}
+                  {p.nombre_producto}
                 </Card.Title>
                 <hr></hr>
 
                 <Card.Title className="text-center fs-4 my-5 text-secondary">
-                  {formatNum(p.price)}
+                  {formatNum(p.precio)}
                 </Card.Title>
                 <Container fluid className="d-flex justify-content-between">
                   <Button

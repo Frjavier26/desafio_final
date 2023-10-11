@@ -1,22 +1,32 @@
 import { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const Context = createContext();
 
 export const Provider = ({ children }) => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [datos, setDatos] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const endpoint = '/productos.json';
 
   const getProducts = async () => {
-    const resp = await fetch(endpoint);
-    const dat = await resp.json();
-    setData(dat);
+    const urlServer = 'http://localhost:3000';
+    const endpoint = '/productos';
+
+    try {
+      const result = await axios.get(urlServer + endpoint);
+      setDatos(result.data);
+      console.log('Ejecuta el Try de getProductos');
+      console.log('Data: ', result.data);
+      console.log('Estado datos: ', datos);
+    } catch ({ response: { data: message } }) {
+      alert(message + ' 🙁');
+      console.log(message);
+    }
   };
 
   useEffect(() => {
@@ -26,7 +36,8 @@ export const Provider = ({ children }) => {
   }, []);
 
   function verDetalle(pid) {
-    const filteredProduct = data.filter((el) => el.id === pid);
+    const filteredProduct = datos.filter((el) => el.id === pid); //Aquí en vez de hacer un filtro del arreglo completo de productos, podemos hacer una conexión con la API con GET productos/:id
+    console.log(filteredProduct);
     return (
       setSelectedProduct([filteredProduct[0]]),
       navigate(`/productos/${filteredProduct[0].id}`)
@@ -34,10 +45,16 @@ export const Provider = ({ children }) => {
   }
 
   const addProduct = (pid) => {
-    const addedProduct = data
+    const addedProduct = datos
       .filter((el) => el.id === pid)
       .map((p) => {
-        return { id: p.id, img: p.img, name: p.name, price: p.price, q: 1 };
+        return {
+          id: p.id,
+          url_imagen: p.url_imagen,
+          nombre_producto: p.nombre_producto,
+          precio: p.precio,
+          q: 1,
+        };
       });
 
     const exists = cart.some((el) => {
@@ -104,7 +121,8 @@ export const Provider = ({ children }) => {
   }
 
   const globalState = {
-    data,
+    datos,
+    setDatos,
     verDetalle,
     selectedProduct,
     addProduct,

@@ -11,7 +11,7 @@
 }
 
 .nav-icon-spc {
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .hd-txt {
@@ -72,7 +72,7 @@ ul {
 }
 
 .txt-violet {
-    color: blueviolet;
+    color: #8a2be2;
 }
 
 footer {
@@ -95,4 +95,30 @@ a {
 
 body {
     min-height: 100vh;
+}
+
+
+
+a{ 
+    margin :30px;
+
+}
+
+.welcome {
+    padding: 10px;
+        text-align: center;
+        margin-left: 0px;
+        color:#8a2be2;
+    
+        background-color: rgb(177, 237, 255);
+    }
+    
+    .buttons {
+
+        margin-left: 10px;
+        width: 185px ;
+        margin: 20px;
+        padding-right: 60;
+   background-color: #8a2be2;
+
 }
