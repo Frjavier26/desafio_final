@@ -18,10 +18,10 @@ export const Provider = ({ children }) => {
     const endpoint = '/productos';
 
     try {
-      const result = await axios.get(urlServer + endpoint);
-      setDatos(result.data);
+      const { data } = await axios.get(urlServer + endpoint);
+      setDatos(data);
       console.log('Ejecuta el Try de getProductos');
-      console.log('Data: ', result.data);
+      console.log('Data: ', data);
       console.log('Estado datos: ', datos);
     } catch ({ response: { data: message } }) {
       alert(message + ' 🙁');
@@ -36,8 +36,9 @@ export const Provider = ({ children }) => {
   }, []);
 
   function verDetalle(pid) {
-    const filteredProduct = datos.filter((el) => el.id === pid); //Aquí en vez de hacer un filtro del arreglo completo de productos, podemos hacer una conexión con la API con GET productos/:id
-    console.log(filteredProduct);
+    const filteredProduct = datos.filter((el) => el.id == pid); //Aquí en vez de hacer un filtro del arreglo completo de productos, podemos hacer una conexión con la API con GET productos/:id
+    console.log('datos en verDetalle: ', datos);
+    console.log('filteredproduct: ', filteredProduct);
     return (
       setSelectedProduct([filteredProduct[0]]),
       navigate(`/productos/${filteredProduct[0].id}`)
@@ -46,7 +47,7 @@ export const Provider = ({ children }) => {
 
   const addProduct = (pid) => {
     const addedProduct = datos
-      .filter((el) => el.id === pid)
+      .filter((el) => el.id == pid)
       .map((p) => {
         return {
           id: p.id,
@@ -58,7 +59,7 @@ export const Provider = ({ children }) => {
       });
 
     const exists = cart.some((el) => {
-      if (el.id === pid) {
+      if (el.id == pid) {
         return true;
       } else {
         return false;
@@ -67,13 +68,13 @@ export const Provider = ({ children }) => {
 
     exists
       ? addQ(pid)
-      : cart.length === 0
+      : cart.length == 0
       ? setCart([addedProduct[0]])
       : setCart([...cart, addedProduct[0]]);
   };
 
   function emptyCart() {
-    if (cart.length === 0) {
+    if (cart.length == 0) {
       handleShow();
     } else {
       setCart([]);
@@ -90,15 +91,15 @@ export const Provider = ({ children }) => {
   }
 
   const addQ = (pid) => {
-    const idx = cart.findIndex((el) => el.id === pid);
+    const idx = cart.findIndex((el) => el.id == pid);
     cart[idx].q++;
     setCart([...cart]);
   };
 
   const rmvQ = (pid) => {
-    const idx = cart.findIndex((el) => el.id === pid);
-    if (cart[idx].q === 1) {
-      const newArr = cart.filter((el) => el.id !== pid);
+    const idx = cart.findIndex((el) => el.id == pid);
+    if (cart[idx].q == 1) {
+      const newArr = cart.filter((el) => el.id != pid);
       return setCart([...newArr]);
     } else {
       cart[idx].q--;
