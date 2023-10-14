@@ -37,7 +37,7 @@ function Login() {
       alert('Usuario identificado con éxito 😀');
       localStorage.setItem('token', token);
       setUsuario();
-      navigate('/');
+      navigate('/Admin');
     } catch ({ message }) {
       alert(message + 'catch de iniciar sesión 🙁');
       console.log(message);
