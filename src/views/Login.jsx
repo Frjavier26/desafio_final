@@ -6,16 +6,45 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
 
 function Login() {
-  const [email, setEmail] = useState('');
+  /*const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const navigate = useNavigate();
-  const { setUser, setRole } = useContext(Context);
+  const { setUser, setRole } = useContext(Context);*/
 
+  const navigate = useNavigate();
+  const [usuario, setUsuario] = useState({});
 
-  const validarDatos = () => {
+  const handleSetUsuario = ({ target: { value, name } }) => {
+    const field = {};
+    field[name] = value;
+    setUsuario({ ...usuario, ...field });
+    console.log(field);
+  };
+
+  const iniciarSesion = async () => {
+    const urlServer = 'http://localhost:3000';
+    const endpoint = '/login';
+    const { email, password } = usuario;
+
+    try {
+      if (!email || !password) return alert('Email y password obligatorias');
+      const { data: token } = await axios.post(urlServer + endpoint, usuario);
+      console.log(data);
+      alert('Usuario identificado con éxito 😀');
+      localStorage.setItem('token', token);
+      setUsuario();
+      navigate('/');
+    } catch ({ data: message }) {
+      alert(message + 'catch de iniciar sesión 🙁');
+      console.log(message);
+    }
+  };
+
+  /*const validarDatos = () => {
     if (email === '' || password === '') {
       setError(true);
       return;
@@ -24,7 +53,6 @@ function Login() {
     setEmail('');
     setPassword('');
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -38,19 +66,19 @@ function Login() {
       setRole('user')
       navigate('/')
     }
-  }
+  }*/
 
   return (
     <Container className="nav-spc2 mb-5">
       <Form>
-        {error ? <p className='text-danger'>Todos los campos son obligatorios</p> : null}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Correo</Form.Label>
           <input
+            value={usuario.correo}
             className="form-control"
             type="email"
             name="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleSetUsuario}
           />
           <Form.Text className="text-muted">
             No olvides ingresar con el correo con el cual te registraste
@@ -60,10 +88,11 @@ function Login() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Contraseña</Form.Label>
           <input
+            value={usuario.clave}
             className="form-control"
             type="password"
             name="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleSetUsuario}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
@@ -71,16 +100,10 @@ function Login() {
         <Button
           className="btn-detail m-2 px-2 py-1"
           variant="info"
-          type="submit"
-          onClick={(e) => handleSubmit(e)}
+          onClick={iniciarSesion}
         >
           Ingresa
         </Button>
-
-
-        <NavLink to={'/admin'}>
-          <Button variant="outline-info">Ingresar como Admin</Button>{' '}
-        </NavLink>
       </Form>
     </Container>
   );

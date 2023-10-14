@@ -8,15 +8,23 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function GridComplexExample() {
-  const [nombre, setNombre] = useState('');
+  /*const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false);*/
+
+  const navigate = useNavigate();
+  const [usuario, setUsuario] = useState({});
+
+  const handleSetUsuario = ({ target: { value, name } }) => {
+    const field = {};
+    field[name] = value;
+    setUsuario({ ...usuario, ...field });
+    console.log(field);
+  };
 
   const registrarUsuario = async () => {
-    const navigate = useNavigate();
-
     const urlServer = 'http://localhost:3000';
     const endpoint = '/usuarios';
     try {
@@ -29,7 +37,7 @@ function GridComplexExample() {
     }
   };
 
-  const validarInput = (e) => {
+  /*const validarInput = (e) => {
     e.preventDefault();
     if (nombre === '' || apellido === '' || password === '' || email === '') {
       setError(true);
@@ -40,30 +48,31 @@ function GridComplexExample() {
     setApellido('');
     setPassword('');
     setEmail('');
-    registrarUsuario();
-  };
+    //registrarUsuario();
+  };*/
   return (
     <Container className="nav-spc2 mb-5">
-      <Form onSubmit={validarInput}>
-        {error ? <p>Todos los campos son obligatorios</p> : null}
+      <Form onSubmit={registrarUsuario}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
             <input
+              value={usuario.correo}
               className="form-control"
               type="email"
-              name="password"
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              onChange={handleSetUsuario}
             />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Password</Form.Label>
             <input
+              value={usuario.clave}
               className="form-control"
               type="password"
               name="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleSetUsuario}
             />
           </Form.Group>
         </Row>
@@ -71,22 +80,24 @@ function GridComplexExample() {
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <Form.Label>Nombre</Form.Label>
           <input
+            value={usuario.nombre}
             className="form-control"
-            name="nombre"
-            onChange={(e) => setNombre(e.target.value)}
+            name="name"
+            onChange={handleSetUsuario}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formGridAddress2">
           <Form.Label>Apellido</Form.Label>
           <input
+            value={usuario.apellido}
             className="form-control"
-            name="apellido"
-            onChange={(e) => setApellido(e.target.value)}
+            name="lastName"
+            onChange={handleSetUsuario}
           />
         </Form.Group>
 
-        <Button variant="info" type="submit">
+        <Button variant="info" onClick={registrarUsuario}>
           Regístrate
         </Button>
       </Form>
