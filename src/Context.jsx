@@ -10,6 +10,9 @@ export const Provider = ({ children }) => {
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
+  const [role, setRole] = useState(undefined);
+  const [user, setUser] = useState(undefined);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -90,6 +93,14 @@ export const Provider = ({ children }) => {
     navigate(`/cart`);
   }
 
+  function getUser() {
+    return user;
+  }
+
+  function getRole() {
+    return role;
+  }
+
   const addQ = (pid) => {
     const idx = cart.findIndex((el) => el.id == pid);
     cart[idx].q++;
@@ -122,6 +133,10 @@ export const Provider = ({ children }) => {
   }
 
   const globalState = {
+    setRole,
+    setUser,
+    getUser,
+    getRole,
     datos,
     setDatos,
     verDetalle,

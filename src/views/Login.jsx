@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../Context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
@@ -10,9 +11,11 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
+  const { setUser, setRole } = useContext(Context);
 
-  const validarDatos = (e) => {
-    e.preventDefault();
+
+  const validarDatos = () => {
     if (email === '' || password === '') {
       setError(true);
       return;
@@ -22,10 +25,25 @@ function Login() {
     setPassword('');
   };
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    validarDatos()
+    if(email === 'admin@admin.com') {
+      setUser(email)
+      setRole('admin')
+      navigate('/admin')
+    } else {
+      setUser(email)
+      setRole('user')
+      navigate('/')
+    }
+  }
+
   return (
     <Container className="nav-spc2 mb-5">
-      <Form onSubmit={validarDatos}>
-        {error ? <p>Todos los campos son obligatorios</p> : null}
+      <Form>
+        {error ? <p className='text-danger'>Todos los campos son obligatorios</p> : null}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Correo</Form.Label>
           <input
@@ -50,16 +68,15 @@ function Login() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
 
-        <NavLink to={'/'}>
-          <Button
-            className="btn-detail m-2 px-2 py-1"
-            variant="info"
-            type="submit"
-            onClick={() => Navigate('/')}
-          >
-            Ingresa
-          </Button>
-        </NavLink>
+        <Button
+          className="btn-detail m-2 px-2 py-1"
+          variant="info"
+          type="submit"
+          onClick={(e) => handleSubmit(e)}
+        >
+          Ingresa
+        </Button>
+
 
         <NavLink to={'/admin'}>
           <Button variant="outline-info">Ingresar como Admin</Button>{' '}
