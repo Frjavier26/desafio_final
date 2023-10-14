@@ -33,12 +33,12 @@ function Login() {
     try {
       if (!email || !password) return alert('Email y password obligatorias');
       const { data: token } = await axios.post(urlServer + endpoint, usuario);
-      console.log(data);
+      console.log(token);
       alert('Usuario identificado con éxito 😀');
       localStorage.setItem('token', token);
       setUsuario();
       navigate('/');
-    } catch ({ data: message }) {
+    } catch ({ message }) {
       alert(message + 'catch de iniciar sesión 🙁');
       console.log(message);
     }
