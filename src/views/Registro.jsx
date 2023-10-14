@@ -4,6 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function GridComplexExample() {
   const [nombre, setNombre] = useState('');
@@ -11,6 +13,21 @@ function GridComplexExample() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+
+  const registrarUsuario = async () => {
+    const navigate = useNavigate();
+
+    const urlServer = 'http://localhost:3000';
+    const endpoint = '/usuarios';
+    try {
+      await axios.post(urlServer + endpoint, usuario);
+      alert('Usuario registrado con éxito');
+      navigate('/login');
+    } catch (error) {
+      alert('Algo salió mal ...');
+      console.log(error);
+    }
+  };
 
   const validarInput = (e) => {
     e.preventDefault();
@@ -23,6 +40,7 @@ function GridComplexExample() {
     setApellido('');
     setPassword('');
     setEmail('');
+    registrarUsuario();
   };
   return (
     <Container className="nav-spc2 mb-5">
