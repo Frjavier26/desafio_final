@@ -20,7 +20,7 @@ export default function NavbarComp() {
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
-    <Navbar bg="info" variant="dark" expand="lg" fixed="top">
+    <Navbar bg="info" variant="dark" fixed="top">
       <Container>
         <Navbar.Brand
           onClick={() => {
@@ -41,21 +41,33 @@ export default function NavbarComp() {
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
             >
-              <FontAwesomeIcon icon={faUserCheck} size="lg" />
+              <FontAwesomeIcon
+                className="nav-icon-spc"
+                icon={faUserCheck}
+                size="lg"
+              />
             </OverlayTrigger>
           </NavLink>
-          <span className="ms-2"></span>
+          <span></span>
           <NavLink className={setActiveClass} to="/Registro">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Registrarse</Tooltip>}
             >
-              <FontAwesomeIcon icon={faUserPlus} size="lg" />
+              <FontAwesomeIcon
+                className="nav-icon-spc"
+                icon={faUserPlus}
+                size="lg"
+              />
             </OverlayTrigger>
           </NavLink>
-          <span className="ms-3"></span>
+          <span></span>
           <NavLink className={setActiveClass} to="/Cart">
-            <FontAwesomeIcon icon={faCartShopping} size="lg" />
+            <FontAwesomeIcon
+              className="nav-icon-spc"
+              icon={faCartShopping}
+              size="lg"
+            />
             <Badge pill bg="secondary" className="text-light badge-pos">
               {cart.length}
             </Badge>{' '}

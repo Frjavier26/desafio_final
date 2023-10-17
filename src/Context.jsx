@@ -93,6 +93,22 @@ export const Provider = ({ children }) => {
     navigate(`/cart`);
   }
 
+  function goToEditItems() {
+    navigate(`/editItems`);
+  }
+
+  function goToAddItem() {
+    navigate(`/addItem`);
+  }
+
+  function goToEditProfile() {
+    navigate(`/editProfile`);
+  }
+
+  function goToMyItems() {
+    navigate(`myItems`);
+  }
+
   function getUser() {
     return user;
   }
@@ -144,6 +160,10 @@ export const Provider = ({ children }) => {
     addProduct,
     cart,
     irAHome,
+    goToAddItem,
+    goToEditItems,
+    goToEditProfile,
+    goToMyItems,
     emptyCart,
     formatNum,
     show,
