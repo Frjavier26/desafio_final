@@ -10,7 +10,7 @@ import NotFound from './views/NotFound';
 import Login from './views/Login';
 import Registro from './views/Registro';
 import Footer from './components/Footer';
-import Admin from './views/Admin/Admin';
+import Admin from './views/Admin';
 
 function App() {
   return (
