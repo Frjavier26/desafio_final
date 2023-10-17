@@ -4,17 +4,17 @@ import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Container from 'react-bootstrap/esm/Container';
 
-import { useContext, useState, useEffect } from 'react'
-import { Context } from '../../Context'
-import {Link, Outlet} from "react-router-dom";
+import { useContext, useState, useEffect } from 'react';
+import { Context } from '../Context';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Admin() {
-  const { getUser} = useContext(Context);
+  const { getUser } = useContext(Context);
 
   return (
     <Container>
       <Container>
-        <div className="welcome" style={{marginTop: '100px'}}>
+        <div className="welcome" style={{ marginTop: '100px' }}>
           <h2>¡Bienvenid@! {getUser()}</h2>
           <h3> {getUser()} </h3>
         </div>
@@ -28,20 +28,22 @@ export default function Admin() {
                   <div className="buttons">
                     <button>
                       <Nav.Link>
-                        <Link to='/admin/dashboard'>Dashboard</Link>
+                        <Link to="/admin/dashboard">Dashboard</Link>
                       </Nav.Link>
                     </button>
                     <Nav.Item>
                       <button>
-                        <Nav.Link to='edit-profile'>
+                        <Nav.Link to="edit-profile">
                           <Link to={'/admin/edit-profile'}>Editar Perfil</Link>
                         </Nav.Link>
                       </button>
                     </Nav.Item>
                     <Nav.Item>
                       <button>
-                        <Nav.Link to='edit-products'>
-                          <Link to={'/admin/edit-product'}>Editar Productos</Link>
+                        <Nav.Link to="edit-products">
+                          <Link to={'/admin/edit-product'}>
+                            Editar Productos
+                          </Link>
                         </Nav.Link>
                       </button>
                     </Nav.Item>
