@@ -12,8 +12,11 @@ const Home = () => {
             <div className="d-flex flex-column justify-content-center hd-txt">
               <h1 className="pt-5">Bienvenido a tu zona gamer</h1>
               <strong>
-                <p>Encuentra todo lo que necesitas para equiparte y</p>
-                <p>¡Diviértete comprando!</p>
+                <p>
+                  Encuentra todo lo que necesitas para equiparte y vende lo que
+                  ya no uses
+                </p>
+                <p>¡Compra y vende en tu zona gamer!</p>
               </strong>
               <hr></hr>
             </div>
