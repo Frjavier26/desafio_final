@@ -28,10 +28,10 @@ function Login() {
   const iniciarSesion = async () => {
     const urlServer = 'http://localhost:3000';
     const endpoint = '/login';
-    const { email, password } = usuario;
+    const { user_email, user_password } = usuario;
 
     try {
-      if (!email || !password) return alert('Email y password obligatorias');
+      if (!user_email || !user_password) return alert('Email y password obligatorias');
       const { data: token } = await axios.post(urlServer + endpoint, usuario);
       console.log(token);
       alert('Usuario identificado con éxito 😀');
@@ -74,10 +74,10 @@ function Login() {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Correo</Form.Label>
           <input
-            value={usuario.user_email}
+            value={usuario.email}
             className="form-control"
             type="email"
-            name="email"
+            name="user_email"
             onChange={handleSetUsuario}
           />
           <Form.Text className="text-muted">
@@ -88,10 +88,10 @@ function Login() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Contraseña</Form.Label>
           <input
-            value={usuario.user_password}
+            value={usuario.password}
             className="form-control"
             type="password"
-            name="password"
+            name="user_password"
             onChange={handleSetUsuario}
           />
         </Form.Group>
