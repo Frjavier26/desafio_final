@@ -124,3 +124,7 @@ body {
     padding-right: 60;
     background-color: blueviolet;
 }
+
+.dn {
+    display: none;
+}

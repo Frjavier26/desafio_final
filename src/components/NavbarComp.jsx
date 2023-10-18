@@ -10,6 +10,8 @@ import {
   faCartShopping,
   faUserCheck,
   faUserPlus,
+  faUserXmark,
+  faTableColumns,
 } from '@fortawesome/free-solid-svg-icons';
 import { Context } from '../Context';
 
@@ -36,13 +38,40 @@ export default function NavbarComp() {
           </span>
         </Navbar.Brand>
         <Container className="text-end">
+          <NavLink className={setActiveClass} to="/dashboard">
+            <OverlayTrigger
+              placement="bottom"
+              overlay={<Tooltip id="tooltip-gz">Dashboard</Tooltip>}
+            >
+              <FontAwesomeIcon
+                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                icon={faTableColumns}
+                size="lg"
+              />
+            </OverlayTrigger>
+          </NavLink>
+
+          <NavLink to="/">
+            <OverlayTrigger
+              placement="bottom"
+              overlay={<Tooltip id="tooltip-gz">Cerrar Sesión</Tooltip>}
+            >
+              <FontAwesomeIcon
+                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                icon={faUserXmark}
+                style={{ color: '#e71861' }}
+                size="lg"
+              />
+            </OverlayTrigger>
+          </NavLink>
+
           <NavLink className={setActiveClass} to="/login">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
             >
               <FontAwesomeIcon
-                className="nav-icon-spc"
+                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
                 icon={faUserCheck}
                 size="lg"
               />
