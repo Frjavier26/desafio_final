@@ -9,7 +9,6 @@ import axios from 'axios';
 import Dashboard from '../components/Dashboard';
 
 function GridComplexExample() {
-
   const navigate = useNavigate();
   const [producto, setProducto] = useState({});
 
@@ -33,9 +32,7 @@ function GridComplexExample() {
     }
   };
 
-
   return (
-    
     <Container className="nav-spc2 mb-5">
       <Dashboard />
       <Form onSubmit={editarProducto}>
@@ -43,7 +40,7 @@ function GridComplexExample() {
           <Form.Group as={Col} controlId="formGridNombre">
             <Form.Label>Ingresa tu nombre de Producto</Form.Label>
             <input
-              value={producto.nombre_producto}
+              value={producto.product_name}
               className="form-control"
               type="text"
               name="producto"
@@ -54,7 +51,7 @@ function GridComplexExample() {
           <Form.Group as={Col} controlId="formGridPrice">
             <Form.Label>Precio</Form.Label>
             <input
-              value={producto.precio}
+              value={producto.price}
               className="form-control"
               type="number"
               name="price"
@@ -66,7 +63,7 @@ function GridComplexExample() {
         <Form.Group className="mb-3" controlId="formGridImg">
           <Form.Label>Modifica tu Imagen</Form.Label>
           <input
-            value={producto.url_imagen}
+            value={producto.img_url}
             className="form-control"
             name="img"
             onChange={handleSetProducto}
@@ -74,24 +71,28 @@ function GridComplexExample() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Descripcion breve de tu producto</Form.Label>
-        <Form.Control 
-            value={producto.descripcion_corta}
+          <Form.Label>Descripcion breve de tu producto</Form.Label>
+          <Form.Control
+            value={producto.short_description}
             className="form-control"
             name="descripcion_corta"
-            onChange={handleSetProducto} as="textarea" rows={2} />
-      </Form.Group>
-
-
+            onChange={handleSetProducto}
+            as="textarea"
+            rows={2}
+          />
+        </Form.Group>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Descripcion formal</Form.Label>
-        <Form.Control
-            value={producto.descripcion}
+          <Form.Label>Descripcion formal</Form.Label>
+          <Form.Control
+            value={producto.long_description}
             className="form-control"
             name="descripcion"
-            onChange={handleSetProducto} as="textarea" rows={3} />
-      </Form.Group>
+            onChange={handleSetProducto}
+            as="textarea"
+            rows={3}
+          />
+        </Form.Group>
 
         <Button variant="info" onClick={editarProducto}>
           Modifica tu Producto!

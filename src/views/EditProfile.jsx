@@ -42,11 +42,10 @@ function GridComplexExample() {
     <Container className="nav-spc2 mb-5">
       <Dashboard />
       <Form onSubmit={actualizarUsuario}>
-
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <Form.Label>Nombre</Form.Label>
           <input
-            value={usuario.nombre}
+            value={usuario.user_name}
             className="form-control"
             name="name"
             onChange={handleSetUsuario}
@@ -56,7 +55,7 @@ function GridComplexExample() {
         <Form.Group className="mb-3" controlId="formGridAddress2">
           <Form.Label>Apellido</Form.Label>
           <input
-            value={usuario.apellido}
+            value={usuario.user_lastname}
             className="form-control"
             name="lastName"
             onChange={handleSetUsuario}
@@ -72,4 +71,3 @@ function GridComplexExample() {
 }
 
 export default GridComplexExample;
-  

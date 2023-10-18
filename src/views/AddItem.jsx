@@ -44,7 +44,7 @@ function GridComplexExample() {
             <Form.Group as={Col} controlId="formGridText">
               <Form.Label>Ingresa tu nombre de Producto</Form.Label>
               <input
-                value={producto.nombre_producto}
+                value={producto.product_name}
                 className="form-control"
                 type="text"
                 name="product"
@@ -55,7 +55,7 @@ function GridComplexExample() {
             <Form.Group as={Col} controlId="formGridPrice">
               <Form.Label>Precio</Form.Label>
               <input
-                value={producto.precio}
+                value={producto.price}
                 className="form-control"
                 type="number"
                 name="price"
@@ -67,7 +67,7 @@ function GridComplexExample() {
           <Form.Group className="mb-3" controlId="formGridImg">
             <Form.Label>Imagen</Form.Label>
             <input
-              value={producto.url_imagen}
+              value={producto.img_url}
               className="form-control"
               name="url"
               onChange={handleSetProducto}
@@ -77,7 +77,7 @@ function GridComplexExample() {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Descripcion breve de tu producto</Form.Label>
             <Form.Control
-              value={producto.descripcion_corta}
+              value={producto.short_description}
               className="form-control"
               type="text"
               name="descripcion_corta"
@@ -90,7 +90,7 @@ function GridComplexExample() {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Descripcion formal</Form.Label>
             <Form.Control
-              value={producto.descripcion}
+              value={producto.long_description}
               className="form-control"
               type="text"
               name="descripcion"

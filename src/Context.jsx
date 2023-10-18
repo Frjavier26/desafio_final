@@ -54,9 +54,9 @@ export const Provider = ({ children }) => {
       .map((p) => {
         return {
           id: p.id,
-          url_imagen: p.url_imagen,
-          nombre_producto: p.nombre_producto,
-          precio: p.precio,
+          url_imagen: p.img_url,
+          nombre_producto: p.product_name,
+          precio: p.price,
           q: 1,
         };
       });
@@ -113,10 +113,6 @@ export const Provider = ({ children }) => {
     return user;
   }
 
-  function getRole() {
-    return role;
-  }
-
   const addQ = (pid) => {
     const idx = cart.findIndex((el) => el.id == pid);
     cart[idx].q++;
@@ -152,7 +148,6 @@ export const Provider = ({ children }) => {
     setRole,
     setUser,
     getUser,
-    getRole,
     datos,
     setDatos,
     verDetalle,

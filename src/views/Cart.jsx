@@ -28,7 +28,7 @@ const Cart = () => {
                         <div>
                           <Image
                             className="cart-img mx-2"
-                            src={p.url_imagen}
+                            src={p.img_url}
                             rounded
                           />
                         </div>
@@ -37,13 +37,13 @@ const Cart = () => {
                             style={{ textTransform: 'capitalize' }}
                             className="me-2 text-secondary"
                           >
-                            {p.nombre_producto}
+                            {p.product_name}
                           </span>
                         </div>
                       </div>
                       <div className="d-flex align-items-center fw-bold">
                         <span className="mx-2 txt-violet fw-normal">
-                          {formatNum(p.precio * p.q)}
+                          {formatNum(p.price * p.q)}
                         </span>
                         <Button
                           className="ms-3 me-1 fw-bold"

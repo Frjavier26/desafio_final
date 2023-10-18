@@ -21,8 +21,8 @@ const CardComp = () => {
                 <Card.Img
                   className="card-img"
                   variant="top"
-                  src={p.url_imagen}
-                  alt={p.nombre_producto}
+                  src={p.img_url}
+                  alt={p.product_name}
                 />
               </Container>
               <Card.Body>
@@ -30,12 +30,12 @@ const CardComp = () => {
                   className="fs-5 text-secondary"
                   style={{ textTransform: 'capitalize' }}
                 >
-                  {p.nombre_producto}
+                  {p.product_name}
                 </Card.Title>
                 <hr></hr>
 
                 <Card.Title className="text-center fs-4 my-5 text-secondary">
-                  {formatNum(p.precio)}
+                  {formatNum(p.price)}
                 </Card.Title>
                 <Container fluid className="d-flex justify-content-between">
                   <Button

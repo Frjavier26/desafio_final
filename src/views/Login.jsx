@@ -74,7 +74,7 @@ function Login() {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Correo</Form.Label>
           <input
-            value={usuario.correo}
+            value={usuario.user_email}
             className="form-control"
             type="email"
             name="email"
@@ -88,7 +88,7 @@ function Login() {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Contraseña</Form.Label>
           <input
-            value={usuario.clave}
+            value={usuario.user_password}
             className="form-control"
             type="password"
             name="password"

@@ -57,7 +57,7 @@ function GridComplexExample() {
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
             <input
-              value={usuario.correo}
+              value={usuario.user_email}
               className="form-control"
               type="email"
               name="email"
@@ -68,7 +68,7 @@ function GridComplexExample() {
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Password</Form.Label>
             <input
-              value={usuario.clave}
+              value={usuario.user_password}
               className="form-control"
               type="password"
               name="password"
@@ -80,7 +80,7 @@ function GridComplexExample() {
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <Form.Label>Nombre</Form.Label>
           <input
-            value={usuario.nombre}
+            value={usuario.user_name}
             className="form-control"
             name="name"
             onChange={handleSetUsuario}
@@ -90,7 +90,7 @@ function GridComplexExample() {
         <Form.Group className="mb-3" controlId="formGridAddress2">
           <Form.Label>Apellido</Form.Label>
           <input
-            value={usuario.apellido}
+            value={usuario.user_lastname}
             className="form-control"
             name="lastName"
             onChange={handleSetUsuario}
