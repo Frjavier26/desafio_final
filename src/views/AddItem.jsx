@@ -58,7 +58,7 @@ function GridComplexExample() {
                 value={producto.price}
                 className="form-control"
                 type="number"
-                name="price"
+                name="precio"
                 onChange={handleSetProducto}
               />
             </Form.Group>
@@ -80,7 +80,7 @@ function GridComplexExample() {
               value={producto.short_description}
               className="form-control"
               type="text"
-              name="descripcion_corta"
+              name="short_description"
               onChange={handleSetProducto}
               as="textarea"
               rows={2}
@@ -93,7 +93,7 @@ function GridComplexExample() {
               value={producto.long_description}
               className="form-control"
               type="text"
-              name="descripcion"
+              name="long_description"
               onChange={handleSetProducto}
               as="textarea"
               rows={3}
