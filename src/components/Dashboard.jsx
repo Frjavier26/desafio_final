@@ -21,7 +21,12 @@ export default function Dashboard() {
     const endpoint = '/usuarios';
     const token = localStorage.getItem('token');
 
-    try {
+    const { data } = await axios.get(urlServer + endpoint, {
+      headers: { Authorization: 'Bearer ' + token },
+    });
+    setUsuarioGlobal(data);
+    console.log('data: ', data);
+    /*try {
       const { data } = await axios.get(urlServer + endpoint, {
         headers: { Authorization: 'Bearer ' + token },
       });
@@ -31,7 +36,7 @@ export default function Dashboard() {
     } catch ({ message }) {
       alert('catch de getUserData: ', message + ' 🙁');
       console.log(message);
-    }
+    }*/
   };
 
   useEffect(() => {
