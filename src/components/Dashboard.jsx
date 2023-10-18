@@ -4,11 +4,41 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { useContext, useState, useEffect } from 'react';
 import { Context } from '../Context';
-import { Link, Outlet } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Dashboard() {
-  const { getUser, goToAddItem, goToEditItems, goToEditProfile, goToMyItems } =
-    useContext(Context);
+  const {
+    userData,
+    setUserData,
+    goToAddItem,
+    goToEditItems,
+    goToEditProfile,
+    goToMyItems,
+  } = useContext(Context);
+
+  const getUserData = async () => {
+    const urlServer = 'http://localhost:3000';
+    const endpoint = '/usuarios';
+    const token = localStorage.getItem('token');
+
+    try {
+      const { data } = await axios.get(urlServer + endpoint, {
+        headers: { Authorization: 'Bearer ' + token },
+      });
+      setUsuarioGlobal(data);
+      console.log('data: ', data);
+      console.log('usuarioGlobal: ', usuarioGlobal);
+    } catch ({ message }) {
+      alert('catch de getUserData: ', message + ' 🙁');
+      console.log(message);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      getUserData();
+    };
+  }, []);
 
   return (
     <div className="nav-spc">

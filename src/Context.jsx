@@ -10,8 +10,7 @@ export const Provider = ({ children }) => {
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
-  const [role, setRole] = useState(undefined);
-  const [user, setUser] = useState(undefined);
+  const [usuarioGlobal, setUsuarioGlobal] = useState(undefined);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -145,8 +144,8 @@ export const Provider = ({ children }) => {
   }
 
   const globalState = {
-    setRole,
-    setUser,
+    usuarioGlobal,
+    setUsuarioGlobal,
     getUser,
     datos,
     setDatos,
