@@ -7,6 +7,8 @@ import { Context } from '../Context';
 import axios from 'axios';
 
 export default function Dashboard() {
+  const [usuario, setUsuarioLocal] = useState({});
+  const { setUsuario, setUsuarioGlobal } = useContext(Context);
   const {
     userData,
     setUserData,
@@ -25,6 +27,7 @@ export default function Dashboard() {
       headers: { Authorization: 'Bearer ' + token },
     });
     setUsuarioGlobal(data);
+    setUsuarioLocal(data);
     console.log('data: ', data);
     /*try {
       const { data } = await axios.get(urlServer + endpoint, {
@@ -50,7 +53,7 @@ export default function Dashboard() {
       <Container>
         <Navbar className="justify-content-between align-items-center dashboard-style px-3">
           <div>
-            <h2>Dashboard de Nombre Apellido</h2>
+            <h2>Dashboard de <span>{usuario.user_name}</span></h2>
           </div>
           <div>
             <Dropdown drop="start">
