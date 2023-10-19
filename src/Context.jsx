@@ -92,8 +92,8 @@ export const Provider = ({ children }) => {
     navigate(`/cart`);
   }
 
-  function goToEditItems() {
-    navigate(`/editItems`);
+  function goToItemsList() {
+    navigate(`/itemslist`);
   }
 
   function goToAddItem() {
@@ -155,7 +155,7 @@ export const Provider = ({ children }) => {
     cart,
     irAHome,
     goToAddItem,
-    goToEditItems,
+    goToItemsList,
     goToEditProfile,
     goToMyItems,
     emptyCart,

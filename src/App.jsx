@@ -14,6 +14,7 @@ import Dashboard from './components/Dashboard';
 import MyItems from './views/MyItems';
 import EditItems from './views/EditItem';
 import AddItem from './views/AddItem';
+import ItemsList from './views/ItemsList';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/myItems" element={<MyItems />} />
             <Route path="/addItem" element={<AddItem />} />
             <Route path="/editItems" element={<EditItems />} />
+            <Route path="/itemslist" element={<ItemsList />} />
           </Routes>
         </main>
         <Footer />

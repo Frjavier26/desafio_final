@@ -6,16 +6,19 @@ import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import Modal from 'react-bootstrap/Modal';
 import { useContext } from 'react';
 import { Context } from '../Context';
+import Dashboard from '../components/Dashboard';
 
 const Cart = () => {
   const { cart, irAHome, emptyCart, show, handleClose, formatNum, addQ, rmvQ } =
     useContext(Context);
 
-  const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
-
   return (
     <>
-      <Container className="nav-spc py-5">
+      <Dashboard />
+      <Container className="pb-4">
+        <h2 className="text-center txt-violet py-4 mb-4 bg-light d-flex align-items-center justify-content-center">
+          Publicaciones a modificar
+        </h2>
         <Container className="py-4 bg-light align-items-center">
           <Container>
             <h5>Detalles del pedido:</h5>
@@ -69,9 +72,7 @@ const Cart = () => {
               })}
 
               <ListGroupItem className="py-3 text-end">
-                <h4 className="txt-violet me-3 mb-5">
-                  Total: {formatNum(tot)}
-                </h4>
+                <h1>Aquí debería ir la lista de publicaciones</h1>
                 <div className="d-flex justify-content-between">
                   <div>
                     <Button variant="info">Ir a pagar</Button>

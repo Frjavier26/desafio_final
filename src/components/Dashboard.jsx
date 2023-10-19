@@ -13,7 +13,7 @@ export default function Dashboard() {
     userData,
     setUserData,
     goToAddItem,
-    goToEditItems,
+    goToItemsList,
     goToEditProfile,
     goToMyItems,
   } = useContext(Context);
@@ -53,7 +53,9 @@ export default function Dashboard() {
       <Container>
         <Navbar className="justify-content-between align-items-center dashboard-style px-3">
           <div>
-            <h2>Dashboard de <span>{usuario.user_name}</span></h2>
+            <h2>
+              Dashboard de <span>{usuario.user_name}</span>
+            </h2>
           </div>
           <div>
             <Dropdown drop="start">
@@ -72,7 +74,7 @@ export default function Dashboard() {
                 <Dropdown.Item onClick={goToAddItem}>
                   Crear Publicación
                 </Dropdown.Item>
-                <Dropdown.Item onClick={goToEditItems}>
+                <Dropdown.Item onClick={goToItemsList}>
                   Modificar Publicación
                 </Dropdown.Item>
               </Dropdown.Menu>
