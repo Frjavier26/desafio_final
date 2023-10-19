@@ -22,8 +22,13 @@ function GridComplexExample() {
   const registrarProducto = async () => {
     const urlServer = 'http://localhost:3000';
     const endpoint = '/productos';
+    const token = localStorage.getItem('token');
+const headers = {
+  'Authorization': `Bearer ${token}`
+};
+
     try {
-      await axios.post(urlServer + endpoint, producto);
+      await axios.post(urlServer + endpoint, producto, {headers});
       alert('Producto registrado con éxito');
       navigate('/myItems');
     } catch (error) {
