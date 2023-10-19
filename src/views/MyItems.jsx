@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
-import CardComp from '../components/CardComp';
+import ItemsCards from '../views/ItemsCards';
 import Dashboard from '../components/Dashboard';
+import CardComp from '../components/CardComp';
 
 export default function MyItems() {
   return (
@@ -10,7 +11,7 @@ export default function MyItems() {
         <h2 className="text-center txt-violet py-4 mb-4 bg-light d-flex align-items-center justify-content-center">
           Mis publicaciones
         </h2>
-        <CardComp />
+        <ItemsCards />
       </Container>
     </>
   );

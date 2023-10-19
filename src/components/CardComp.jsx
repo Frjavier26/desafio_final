@@ -9,7 +9,8 @@ import { useContext } from 'react';
 import { Context } from '../Context';
 
 const CardComp = () => {
-  const { datos, verDetalle, addProduct, formatNum } = useContext(Context);
+  const { datos, verDetalle, addProduct, formatNum, setDatos } =
+    useContext(Context);
 
   return (
     <>

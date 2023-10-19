@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from '../components/Dashboard';
 
-function GridComplexExample() {
+function EditItems() {
   const navigate = useNavigate();
   const [producto, setProducto] = useState({});
 
@@ -102,4 +102,4 @@ function GridComplexExample() {
   );
 }
 
-export default GridComplexExample;
+export default EditItems;

@@ -7,10 +7,29 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from '../components/Dashboard';
+import { useContext } from 'react';
+import { Context } from '../Context';
 
-function GridComplexExample() {
+function AddItem() {
   const navigate = useNavigate();
   const [producto, setProducto] = useState({});
+  const { setDatos } = useContext(Context);
+
+  const getProducts = async () => {
+    const urlServer = 'http://localhost:3000';
+    const endpoint = '/productos';
+
+    try {
+      const { data } = await axios.get(urlServer + endpoint);
+      setDatos(data);
+      console.log('Ejecuta el Try de getProductos');
+      console.log('Data: ', data);
+      console.log('Estado datos: ', datos);
+    } catch ({ response: { data: message } }) {
+      alert(message + ' 🙁');
+      console.log(message);
+    }
+  };
 
   const handleSetProducto = ({ target: { value, name } }) => {
     const field = {};
@@ -23,12 +42,13 @@ function GridComplexExample() {
     const urlServer = 'http://localhost:3000';
     const endpoint = '/productos';
     const token = localStorage.getItem('token');
-const headers = {
-  'Authorization': `Bearer ${token}`
-};
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
 
     try {
-      await axios.post(urlServer + endpoint, producto, {headers});
+      await axios.post(urlServer + endpoint, producto, { headers });
+      getProducts();
       alert('Producto registrado con éxito');
       navigate('/myItems');
     } catch (error) {
@@ -114,4 +134,4 @@ const headers = {
   );
 }
 
-export default GridComplexExample;
+export default AddItem;
