@@ -12,7 +12,7 @@ import Registro from './views/Registro';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import MyItems from './views/MyItems';
-import EditItems from './views/EditItems';
+import EditItems from './views/EditItem';
 import AddItem from './views/AddItem';
 
 function App() {

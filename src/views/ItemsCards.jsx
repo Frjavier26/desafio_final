@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../Context';
 
@@ -48,7 +48,8 @@ const ItemsCards = () => {
                       value={p.id}
                       onClick={(e) => verDetalle(e.target.value)}
                     >
-                      Editar
+                      Modificar{'   '}
+                      <FontAwesomeIcon className="ms-2" icon={faPenToSquare} />
                     </Button>
                     <Button
                       variant="outline-danger"
