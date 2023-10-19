@@ -37,7 +37,7 @@ function Login() {
       console.log(token);
       alert('Usuario identificado con éxito 😀');
       localStorage.setItem('token', token);
-      navigate('/dashboard');
+      navigate('/myitems');
     } catch ({ message }) {
       alert(message + 'catch de iniciar sesión 🙁');
       console.log(message);

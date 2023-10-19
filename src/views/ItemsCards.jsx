@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../Context';
 
@@ -18,7 +18,7 @@ const ItemsCards = () => {
     <>
       <Row xs={1} md={2} xl={3} xxl={4} className="g-4">
         {datos
-          .filter((el) => el.user_email == usuarioGlobal.user_email)
+          .filter((el) => el.user_email === usuarioGlobal.user_email)
           .map((p) => (
             <Col key={p.id}>
               <Card>
@@ -44,19 +44,19 @@ const ItemsCards = () => {
                   </Card.Title>
                   <Container fluid className="d-flex justify-content-between">
                     <Button
-                      variant="outline-warning"
+                      variant="warning"
                       value={p.id}
                       onClick={(e) => verDetalle(e.target.value)}
                     >
-                      Ver más
+                      Editar
                     </Button>
                     <Button
-                      variant="warning"
+                      variant="outline-danger"
                       value={p.id}
                       onClick={(e) => addProduct(e.target.value)}
                     >
-                      Añadir{'   '}
-                      <FontAwesomeIcon className="ms-2" icon={faCartPlus} />
+                      Eliminar{'   '}
+                      <FontAwesomeIcon className="ms-2" icon={faTrashCan} />
                     </Button>
                   </Container>
                 </Card.Body>
