@@ -10,6 +10,8 @@ import {
   faCartShopping,
   faUserCheck,
   faUserPlus,
+  faUserXmark,
+  faTableColumns,
 } from '@fortawesome/free-solid-svg-icons';
 import { Context } from '../Context';
 
@@ -20,7 +22,7 @@ export default function NavbarComp() {
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (
-    <Navbar bg="info" variant="dark" expand="lg" fixed="top">
+    <Navbar bg="info" variant="dark" fixed="top">
       <Container>
         <Navbar.Brand
           onClick={() => {
@@ -36,26 +38,65 @@ export default function NavbarComp() {
           </span>
         </Navbar.Brand>
         <Container className="text-end">
+          <NavLink className={setActiveClass} to="/dashboard">
+            <OverlayTrigger
+              placement="bottom"
+              overlay={<Tooltip id="tooltip-gz">Dashboard</Tooltip>}
+            >
+              <FontAwesomeIcon
+                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                icon={faTableColumns}
+                size="lg"
+              />
+            </OverlayTrigger>
+          </NavLink>
+
+          <NavLink to="/">
+            <OverlayTrigger
+              placement="bottom"
+              overlay={<Tooltip id="tooltip-gz">Cerrar Sesión</Tooltip>}
+            >
+              <FontAwesomeIcon
+                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                icon={faUserXmark}
+                style={{ color: '#e71861' }}
+                size="lg"
+              />
+            </OverlayTrigger>
+          </NavLink>
+
           <NavLink className={setActiveClass} to="/login">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
             >
-              <FontAwesomeIcon icon={faUserCheck} size="lg" />
+              <FontAwesomeIcon
+                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                icon={faUserCheck}
+                size="lg"
+              />
             </OverlayTrigger>
           </NavLink>
-          <span className="ms-2"></span>
+          <span></span>
           <NavLink className={setActiveClass} to="/Registro">
             <OverlayTrigger
               placement="bottom"
               overlay={<Tooltip id="tooltip-gz">Registrarse</Tooltip>}
             >
-              <FontAwesomeIcon icon={faUserPlus} size="lg" />
+              <FontAwesomeIcon
+                className="nav-icon-spc"
+                icon={faUserPlus}
+                size="lg"
+              />
             </OverlayTrigger>
           </NavLink>
-          <span className="ms-3"></span>
+          <span></span>
           <NavLink className={setActiveClass} to="/Cart">
-            <FontAwesomeIcon icon={faCartShopping} size="lg" />
+            <FontAwesomeIcon
+              className="nav-icon-spc"
+              icon={faCartShopping}
+              size="lg"
+            />
             <Badge pill bg="secondary" className="text-light badge-pos">
               {cart.length}
             </Badge>{' '}

@@ -1,5 +1,18 @@
+* { 
+    margin: 0;
+    padding: 0;
+}
+
+.scr-h {
+    min-height: 75dvh;
+}
+
 .nav-spc {
     margin-top: 66px;
+}
+
+.Home, .Dashboard {
+    flex-grow: 1;
 }
 
 .nav-spc2 {
@@ -11,7 +24,6 @@
 }
 
 .nav-icon-spc {
-    margin-left: 30px;
     margin-left: 30px;
 }
 
@@ -73,8 +85,7 @@ ul {
 }
 
 .txt-violet {
-    color: #8a2be2;
-    color: #8a2be2;
+    color: blueviolet;
 }
 
 footer {
@@ -99,28 +110,23 @@ body {
     min-height: 100vh;
 }
 
-
-
-a{ 
-    margin :30px;
-
+.dashboard-style {
+    margin-top: 66px;
+    color:gold;
+    /* background-color: #6c757d; */
+    background-color: #3f4041;
 }
-
-.welcome {
-    padding: 10px;
-        text-align: center;
-        margin-left: 0px;
-        color:#8a2be2;
-    
-        background-color: rgb(177, 237, 255);
-    }
     
     .buttons {
 
         margin-left: 10px;
-        width: 200px ;
+        width: 185px ;
         margin: 20px;
         padding-right: 60;
    background-color: #8a2be2;
 
+}
+
+.dn {
+    display: none;
 }

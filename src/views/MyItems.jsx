@@ -1,0 +1,18 @@
+import Container from 'react-bootstrap/Container';
+import ItemsCards from '../views/ItemsCards';
+import Dashboard from '../components/Dashboard';
+import CardComp from '../components/CardComp';
+
+export default function MyItems() {
+  return (
+    <>
+      <Dashboard />
+      <Container className="pb-4">
+        <h2 className="text-center txt-violet py-4 mb-4 bg-light d-flex align-items-center justify-content-center">
+          Mis publicaciones
+        </h2>
+        <ItemsCards />
+      </Container>
+    </>
+  );
+}

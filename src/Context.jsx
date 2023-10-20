@@ -10,8 +10,7 @@ export const Provider = ({ children }) => {
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
-  const [role, setRole] = useState(undefined);
-  const [user, setUser] = useState(undefined);
+  const [usuarioGlobal, setUsuarioGlobal] = useState(undefined);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -54,9 +53,9 @@ export const Provider = ({ children }) => {
       .map((p) => {
         return {
           id: p.id,
-          url_imagen: p.url_imagen,
-          nombre_producto: p.nombre_producto,
-          precio: p.precio,
+          url_imagen: p.img_url,
+          nombre_producto: p.product_name,
+          precio: p.price,
           q: 1,
         };
       });
@@ -93,12 +92,24 @@ export const Provider = ({ children }) => {
     navigate(`/cart`);
   }
 
-  function getUser() {
-    return user;
+  function goToItemsList() {
+    navigate(`/itemslist`);
   }
 
-  function getRole() {
-    return role;
+  function goToAddItem() {
+    navigate(`/addItem`);
+  }
+
+  function goToEditProfile() {
+    navigate(`/editProfile`);
+  }
+
+  function goToMyItems() {
+    navigate(`myItems`);
+  }
+
+  function getUser() {
+    return user;
   }
 
   const addQ = (pid) => {
@@ -133,10 +144,9 @@ export const Provider = ({ children }) => {
   }
 
   const globalState = {
-    setRole,
-    setUser,
+    usuarioGlobal,
+    setUsuarioGlobal,
     getUser,
-    getRole,
     datos,
     setDatos,
     verDetalle,
@@ -144,6 +154,10 @@ export const Provider = ({ children }) => {
     addProduct,
     cart,
     irAHome,
+    goToAddItem,
+    goToItemsList,
+    goToEditProfile,
+    goToMyItems,
     emptyCart,
     formatNum,
     show,

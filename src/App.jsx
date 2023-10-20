@@ -10,23 +10,32 @@ import NotFound from './views/NotFound';
 import Login from './views/Login';
 import Registro from './views/Registro';
 import Footer from './components/Footer';
-import Admin from './views/Admin/Admin';
+import Dashboard from './components/Dashboard';
+import MyItems from './views/MyItems';
+import EditItems from './views/EditItem';
+import AddItem from './views/AddItem';
+import ItemsList from './views/ItemsList';
 
 function App() {
   return (
     <BrowserRouter>
       <Provider>
         <NavbarComp />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/productos/:id" element={<Detail />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/admin" element={<Admin />} />
-        </Routes>
+        <main className="scr-h">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/productos/:id" element={<Detail />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/myItems" element={<MyItems />} />
+            <Route path="/addItem" element={<AddItem />} />
+            <Route path="/editItems" element={<EditItems />} />
+            <Route path="/itemslist" element={<ItemsList />} />
+          </Routes>
+        </main>
         <Footer />
       </Provider>
     </BrowserRouter>

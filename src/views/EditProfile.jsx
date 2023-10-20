@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Dashboard from '../components/Dashboard';
 
 function GridComplexExample() {
   /*const [nombre, setNombre] = useState('');
@@ -24,59 +25,23 @@ function GridComplexExample() {
     console.log(field);
   };
 
-  const registrarUsuario = async () => {
+  const actualizarUsuario = async () => {
     const urlServer = 'http://localhost:3000';
-    const endpoint = '/usuarios';
+    const endpoint = '/usuarios/:id';
     try {
       await axios.post(urlServer + endpoint, usuario);
-      alert('Usuario registrado con éxito');
-      navigate('/login');
+      alert('Usuario actualizado con exito');
+      navigate('/MyItems');
     } catch (error) {
       alert('Algo salió mal ...');
       console.log(error);
     }
   };
 
-  /*const validarInput = (e) => {
-    e.preventDefault();
-    if (nombre === '' || apellido === '' || password === '' || email === '') {
-      setError(true);
-      return;
-    }
-    setError(false);
-    setNombre('');
-    setApellido('');
-    setPassword('');
-    setEmail('');
-    //registrarUsuario();
-  };*/
   return (
     <Container className="nav-spc2 mb-5">
-      <Form onSubmit={registrarUsuario}>
-        <Row className="mb-3">
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <input
-              value={usuario.user_email}
-              className="form-control"
-              type="email"
-              name="email"
-              onChange={handleSetUsuario}
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <input
-              value={usuario.user_password}
-              className="form-control"
-              type="password"
-              name="password"
-              onChange={handleSetUsuario}
-            />
-          </Form.Group>
-        </Row>
-
+      <Dashboard />
+      <Form onSubmit={actualizarUsuario}>
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <Form.Label>Nombre</Form.Label>
           <input
@@ -97,8 +62,8 @@ function GridComplexExample() {
           />
         </Form.Group>
 
-        <Button variant="info" onClick={registrarUsuario}>
-          Regístrate
+        <Button variant="info" onClick={actualizarUsuario}>
+          Actualizar!
         </Button>
       </Form>
     </Container>
