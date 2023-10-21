@@ -11,33 +11,36 @@ import { Context } from '../Context';
 
 function EditItems() {
   const navigate = useNavigate();
-  const { selectedProduct, urlServer } = useContext(Context);
+  const { selectedProduct, getProducts, urlServer } = useContext(Context);
   console.log('selected product en editar: ', selectedProduct);
   const [producto, setProducto] = useState({
-    producto: `${selectedProduct.product_name}`,
-    price: `${selectedProduct.price}`,
-    img: selectedProduct.img_URL,
-    descripcion_corta: selectedProduct.short_description,
-    descripcion: selectedProduct.long_description,
+    producto: `${selectedProduct[0].product_name}`,
+    price: `${selectedProduct[0].price}`,
+    img: `${selectedProduct[0].img_url}`,
+    descripcion_corta: `${selectedProduct[0].short_description}`,
+    descripcion: `${selectedProduct[0].long_description}`,
   });
   console.log('producto state: ', producto);
 
   const handleSetProducto = ({ target: { value, name } }) => {
-    /*const field = {};
+    const field = {};
     field[name] = value;
-    setProducto({ ...producto, ...field });*/
-    setProducto({ ...producto, [name]: value });
+    setProducto({ ...producto, ...field });
+    //setProducto({ ...producto, [name]: value });
+    console.log('field producto: ', field);
+    console.log('producto: ', producto);
   };
 
   const editarProducto = async () => {
     //const urlServer = 'http://localhost:3000';
-    const endpoint = `/productos/${selectedProduct.id}`;
+    const endpoint = `/productos/${selectedProduct[0].id}`;
     const token = localStorage.getItem('token');
     const headers = {
       Authorization: `Bearer ${token}`,
     };
     try {
       await axios.put(urlServer + endpoint, producto, { headers });
+      getProducts();
       alert('Producto modificado con éxito');
       navigate('/myItems');
     } catch (error) {
@@ -63,7 +66,7 @@ function EditItems() {
                 type="text"
                 name="producto"
                 onChange={handleSetProducto}
-                placeholder={selectedProduct.product_name}
+                placeholder={selectedProduct[0].product_name}
               />
             </Form.Group>
 
@@ -75,7 +78,7 @@ function EditItems() {
                 type="number"
                 name="price"
                 onChange={handleSetProducto}
-                placeholder={selectedProduct.price}
+                placeholder={selectedProduct[0].price}
               />
             </Form.Group>
           </Row>
@@ -87,7 +90,7 @@ function EditItems() {
               className="form-control"
               name="img"
               onChange={handleSetProducto}
-              placeholder={selectedProduct.img_URL}
+              placeholder={selectedProduct[0].img_url}
             />
           </Form.Group>
 
@@ -100,7 +103,7 @@ function EditItems() {
               onChange={handleSetProducto}
               as="textarea"
               rows={2}
-              placeholder={selectedProduct.short_description}
+              placeholder={selectedProduct[0].short_description}
             />
           </Form.Group>
 
@@ -113,7 +116,7 @@ function EditItems() {
               onChange={handleSetProducto}
               as="textarea"
               rows={3}
-              placeholder={selectedProduct.long_description}
+              placeholder={selectedProduct[0].long_description}
             />
           </Form.Group>
 

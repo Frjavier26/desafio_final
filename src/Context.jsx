@@ -10,8 +10,11 @@ export const Provider = ({ children }) => {
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
-  const [usuarioGlobal, setUsuarioGlobal] = useState(undefined);
-  const urlServer = 'https://backend-desafio-final.onrender.com'
+  const [usuarioGlobal, setUsuarioGlobal] = useState([]);
+
+  const urlServer = 'https://backend-desafio-final.onrender.com';
+  //const urlServer = 'http://localhost:3000';
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -23,7 +26,7 @@ export const Provider = ({ children }) => {
       const { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
       console.log('Ejecuta el Try de getProductos');
-      console.log('Data: ', data);
+      console.log('Data de productos: ', data);
       console.log('Estado datos: ', datos);
     } catch ({ response: { data: message } }) {
       alert(message + ' 🙁');
@@ -155,6 +158,7 @@ export const Provider = ({ children }) => {
   const globalState = {
     usuarioGlobal,
     setUsuarioGlobal,
+    getProducts,
     getUser,
     datos,
     setDatos,

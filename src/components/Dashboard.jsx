@@ -6,17 +6,15 @@ import { useContext, useState, useEffect } from 'react';
 import { Context } from '../Context';
 import axios from 'axios';
 
-
-
 export default function Dashboard() {
   const [usuario, setUsuarioLocal] = useState({});
-  const { setUsuario, setUsuarioGlobal } = useContext(Context);
   const {
     urlServer,
     goToAddItem,
     goToItemsList,
     goToEditProfile,
     goToMyItems,
+    setUsuarioGlobal,
   } = useContext(Context);
 
   const getUserData = async () => {

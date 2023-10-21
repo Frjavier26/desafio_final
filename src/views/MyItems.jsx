@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import ItemsCards from '../views/ItemsCards';
 import Dashboard from '../components/Dashboard';
-import CardComp from '../components/CardComp';
 
 export default function MyItems() {
   return (
