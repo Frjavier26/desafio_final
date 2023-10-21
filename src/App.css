@@ -117,12 +117,14 @@ body {
     background-color: #3f4041;
 }
     
-.buttons {
-    margin-left: 10px;
-    width: 185px ;
-    margin: 20px;
-    padding-right: 60;
-    background-color: blueviolet;
+    .buttons {
+
+        margin-left: 10px;
+        width: 185px ;
+        margin: 20px;
+        padding-right: 60;
+   background-color: #8a2be2;
+
 }
 
 .dn {
