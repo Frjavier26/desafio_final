@@ -15,6 +15,7 @@ import MyItems from './views/MyItems';
 import EditItems from './views/EditItem';
 import AddItem from './views/AddItem';
 import ItemsList from './views/ItemsList';
+import EditProfile from './views/EditProfile';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/addItem" element={<AddItem />} />
             <Route path="/editItems" element={<EditItems />} />
             <Route path="/itemslist" element={<ItemsList />} />
+            <Route path="/editprofile" element={<EditProfile />} />
           </Routes>
         </main>
         <Footer />
