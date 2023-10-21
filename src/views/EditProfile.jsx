@@ -10,7 +10,7 @@ import { Context } from '../Context';
 
 function EditProfile() {
   const navigate = useNavigate();
-  const { usuarioGlobal } = useContext(Context);
+  const { usuarioGlobal, urlServer } = useContext(Context);
   const [usuario, setUsuario] = useState({
     name: `${usuarioGlobal.user_name}`, // Valor inicial para name
     lastName: `${usuarioGlobal.user_lastname}`, // Valor inicial para lastName});
@@ -25,7 +25,7 @@ function EditProfile() {
   };
 
   const actualizarUsuario = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = `/usuarios/${usuarioGlobal.id}`;
     const token = localStorage.getItem('token');
     const headers = {

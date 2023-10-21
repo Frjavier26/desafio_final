@@ -11,7 +11,7 @@ import { Context } from '../Context';
 
 function EditItems() {
   const navigate = useNavigate();
-  const { selectedProduct } = useContext(Context);
+  const { selectedProduct, urlServer } = useContext(Context);
   console.log('selected product en editar: ', selectedProduct);
   const [producto, setProducto] = useState({
     producto: `${selectedProduct.product_name}`,
@@ -30,7 +30,7 @@ function EditItems() {
   };
 
   const editarProducto = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = `/productos/${selectedProduct.id}`;
     const token = localStorage.getItem('token');
     const headers = {

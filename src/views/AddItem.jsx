@@ -13,10 +13,10 @@ import { Context } from '../Context';
 function AddItem() {
   const navigate = useNavigate();
   const [producto, setProducto] = useState({});
-  const { setDatos } = useContext(Context);
+  const { setDatos, urlServer } = useContext(Context);
 
   const getProducts = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = '/productos';
 
     try {
@@ -39,7 +39,7 @@ function AddItem() {
   };
 
   const registrarProducto = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = '/productos';
     const token = localStorage.getItem('token');
     const headers = {

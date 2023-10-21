@@ -12,8 +12,8 @@ function Login() {
   /*const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-  const navigate = useNavigate();
-  const { setUser, setRole } = useContext(Context);*/
+  const navigate = useNavigate();*/
+  const { urlServer } = useContext(Context);
 
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
@@ -26,7 +26,7 @@ function Login() {
   };
 
   const iniciarSesion = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = '/login';
     const { user_email, user_password } = usuario;
 

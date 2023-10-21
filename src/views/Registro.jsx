@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../Context';
 import axios from 'axios';
 
 function GridComplexExample() {
@@ -13,7 +15,7 @@ function GridComplexExample() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);*/
-
+  const { urlServer } = useContext(Context);
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
 
@@ -25,7 +27,7 @@ function GridComplexExample() {
   };
 
   const registrarUsuario = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = '/usuarios';
     try {
       await axios.post(urlServer + endpoint, usuario);

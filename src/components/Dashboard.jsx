@@ -6,12 +6,13 @@ import { useContext, useState, useEffect } from 'react';
 import { Context } from '../Context';
 import axios from 'axios';
 
+
+
 export default function Dashboard() {
   const [usuario, setUsuarioLocal] = useState({});
   const { setUsuario, setUsuarioGlobal } = useContext(Context);
   const {
-    userData,
-    setUserData,
+    urlServer,
     goToAddItem,
     goToItemsList,
     goToEditProfile,
@@ -19,7 +20,7 @@ export default function Dashboard() {
   } = useContext(Context);
 
   const getUserData = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = '/usuarios';
     const token = localStorage.getItem('token');
 

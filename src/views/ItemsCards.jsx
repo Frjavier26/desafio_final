@@ -12,7 +12,7 @@ import axios from 'axios';
 
 const ItemsCards = () => {
   const navigate = useNavigate();
-  const { datos, editarProducto2, formatNum, usuarioGlobal } =
+  const { datos, editarProducto2, formatNum, usuarioGlobal, urlServer } =
     useContext(Context);
   console.log('datos: ', datos);
   console.log('usuarioGlobal: ', usuarioGlobal);
@@ -22,7 +22,7 @@ const ItemsCards = () => {
   };
 
   const eliminarProducto = async (pid) => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = `/productos/${pid}`;
     const token = localStorage.getItem('token');
     const headers = {

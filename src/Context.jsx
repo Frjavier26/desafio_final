@@ -11,12 +11,12 @@ export const Provider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
   const [usuarioGlobal, setUsuarioGlobal] = useState(undefined);
-
+  const urlServer = 'https://backend-desafio-final.onrender.com'
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const getProducts = async () => {
-    const urlServer = 'http://localhost:3000';
+    //const urlServer = 'http://localhost:3000';
     const endpoint = '/productos';
 
     try {
@@ -177,6 +177,7 @@ export const Provider = ({ children }) => {
     irACarro,
     addQ,
     rmvQ,
+    urlServer,
   };
 
   return <Context.Provider value={globalState}>{children}</Context.Provider>;
