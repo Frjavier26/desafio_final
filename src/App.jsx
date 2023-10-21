@@ -12,7 +12,7 @@ import Registro from './views/Registro';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import MyItems from './views/MyItems';
-import EditItems from './views/EditItem';
+import EditItem from './views/EditItem';
 import AddItem from './views/AddItem';
 import ItemsList from './views/ItemsList';
 import EditProfile from './views/EditProfile';
@@ -33,7 +33,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/myItems" element={<MyItems />} />
             <Route path="/addItem" element={<AddItem />} />
-            <Route path="/editItems" element={<EditItems />} />
+            <Route path="/editItem" element={<EditItem />} />
             <Route path="/itemslist" element={<ItemsList />} />
             <Route path="/editprofile" element={<EditProfile />} />
           </Routes>

@@ -7,12 +7,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../Context';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const ItemsCards = () => {
-  const { datos, verDetalle, addProduct, formatNum, usuarioGlobal } =
+  const navigate = useNavigate();
+  const { datos, editarProducto2, formatNum, usuarioGlobal } =
     useContext(Context);
   console.log('datos: ', datos);
   console.log('usuarioGlobal: ', usuarioGlobal);
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  const eliminarProducto = async (pid) => {
+    const urlServer = 'http://localhost:3000';
+    const endpoint = `/productos/${pid}`;
+    const token = localStorage.getItem('token');
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      await axios.delete(urlServer + endpoint, { headers });
+      alert('Producto eliminado con éxito');
+      navigate('/myItems');
+    } catch (error) {
+      alert('Algo salió mal ...');
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -46,7 +70,7 @@ const ItemsCards = () => {
                     <Button
                       variant="warning"
                       value={p.id}
-                      onClick={(e) => verDetalle(e.target.value)}
+                      onClick={(e) => editarProducto2(e.target.value)}
                     >
                       Modificar{'   '}
                       <FontAwesomeIcon className="ms-2" icon={faPenToSquare} />
@@ -54,7 +78,12 @@ const ItemsCards = () => {
                     <Button
                       variant="outline-danger"
                       value={p.id}
-                      onClick={(e) => addProduct(e.target.value)}
+                      onClick={(e) => {
+                        {
+                          eliminarProducto(e.target.value);
+                          refreshPage();
+                        }
+                      }}
                     >
                       Eliminar{'   '}
                       <FontAwesomeIcon className="ms-2" icon={faTrashCan} />

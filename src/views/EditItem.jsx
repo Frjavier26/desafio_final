@@ -3,27 +3,41 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from '../components/Dashboard';
+import { Context } from '../Context';
 
 function EditItems() {
   const navigate = useNavigate();
-  const [producto, setProducto] = useState({});
+  const { selectedProduct } = useContext(Context);
+  console.log('selected product en editar: ', selectedProduct);
+  const [producto, setProducto] = useState({
+    producto: `${selectedProduct.product_name}`,
+    price: `${selectedProduct.price}`,
+    img: selectedProduct.img_URL,
+    descripcion_corta: selectedProduct.short_description,
+    descripcion: selectedProduct.long_description,
+  });
+  console.log('producto state: ', producto);
 
   const handleSetProducto = ({ target: { value, name } }) => {
-    const field = {};
+    /*const field = {};
     field[name] = value;
-    setProducto({ ...producto, ...field });
-    console.log(field);
+    setProducto({ ...producto, ...field });*/
+    setProducto({ ...producto, [name]: value });
   };
 
   const editarProducto = async () => {
     const urlServer = 'http://localhost:3000';
-    const endpoint = '/productos/:id';
+    const endpoint = `/productos/${selectedProduct.id}`;
+    const token = localStorage.getItem('token');
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
     try {
-      await axios.post(urlServer + endpoint, producto);
+      await axios.put(urlServer + endpoint, producto, { headers });
       alert('Producto modificado con éxito');
       navigate('/myItems');
     } catch (error) {
@@ -39,7 +53,7 @@ function EditItems() {
         <h2 className="text-center txt-violet py-4 mb-4 bg-light d-flex align-items-center justify-content-center">
           Modificar publicación
         </h2>
-        <Form onSubmit={editarProducto}>
+        <Form>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridNombre">
               <Form.Label>Ingresa tu nombre de Producto</Form.Label>
@@ -49,6 +63,7 @@ function EditItems() {
                 type="text"
                 name="producto"
                 onChange={handleSetProducto}
+                placeholder={selectedProduct.product_name}
               />
             </Form.Group>
 
@@ -60,6 +75,7 @@ function EditItems() {
                 type="number"
                 name="price"
                 onChange={handleSetProducto}
+                placeholder={selectedProduct.price}
               />
             </Form.Group>
           </Row>
@@ -71,6 +87,7 @@ function EditItems() {
               className="form-control"
               name="img"
               onChange={handleSetProducto}
+              placeholder={selectedProduct.img_URL}
             />
           </Form.Group>
 
@@ -83,6 +100,7 @@ function EditItems() {
               onChange={handleSetProducto}
               as="textarea"
               rows={2}
+              placeholder={selectedProduct.short_description}
             />
           </Form.Group>
 
@@ -95,6 +113,7 @@ function EditItems() {
               onChange={handleSetProducto}
               as="textarea"
               rows={3}
+              placeholder={selectedProduct.long_description}
             />
           </Form.Group>
 

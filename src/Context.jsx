@@ -38,13 +38,22 @@ export const Provider = ({ children }) => {
   }, []);
 
   function verDetalle(pid) {
-    const filteredProduct = datos.filter((el) => el.id == pid); //Aquí en vez de hacer un filtro del arreglo completo de productos, podemos hacer una conexión con la API con GET productos/:id
+    const filteredProduct = datos.filter((el) => el.id == pid);
     console.log('datos en verDetalle: ', datos);
     console.log('filteredproduct: ', filteredProduct);
     return (
       setSelectedProduct([filteredProduct[0]]),
       navigate(`/productos/${filteredProduct[0].id}`)
     );
+  }
+
+  function editarProducto2(pid) {
+    const filteredProduct = datos.filter((el) => el.id == pid);
+    console.log('datos en verDetalle: ', datos);
+    console.log('filteredproduct: ', filteredProduct);
+    setSelectedProduct([filteredProduct[0]]);
+    console.log('selected product: ', selectedProduct);
+    navigate(`/editItem`);
   }
 
   const addProduct = (pid) => {
@@ -150,6 +159,7 @@ export const Provider = ({ children }) => {
     datos,
     setDatos,
     verDetalle,
+    editarProducto2,
     selectedProduct,
     addProduct,
     cart,
