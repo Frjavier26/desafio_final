@@ -21,6 +21,11 @@ export default function NavbarComp() {
   const { cart, formatNum, irAHome } = useContext(Context);
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
+
   return (
     <Navbar bg="info" variant="dark" fixed="top">
       <Container>
@@ -61,6 +66,7 @@ export default function NavbarComp() {
                 icon={faUserXmark}
                 style={{ color: '#e71861' }}
                 size="lg"
+                onClick={logout}
               />
             </OverlayTrigger>
           </NavLink>

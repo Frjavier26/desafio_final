@@ -29,6 +29,7 @@ export default function Dashboard() {
     setUsuarioGlobal(data);
     setUsuarioLocal(data);
     console.log('data: ', data);
+    console.log('token: ', token);
     /*try {
       const { data } = await axios.get(urlServer + endpoint, {
         headers: { Authorization: 'Bearer ' + token },
