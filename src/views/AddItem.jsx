@@ -24,7 +24,6 @@ function AddItem() {
       setDatos(data);
       console.log('Ejecuta el Try de getProductos');
       console.log('Data: ', data);
-      console.log('Estado datos: ', datos);
     } catch ({ message }) {
       alert(message + ' 🙁');
       console.log(message);

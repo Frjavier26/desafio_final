@@ -12,8 +12,8 @@ export const Provider = ({ children }) => {
   const [show, setShow] = useState(false);
   const [usuarioGlobal, setUsuarioGlobal] = useState([]);
 
-  const urlServer = 'https://backend-desafio-final.onrender.com';
-  //const urlServer = 'http://localhost:3000';
+  //const urlServer = 'https://backend-desafio-final.onrender.com';
+  const urlServer = 'http://localhost:3000';
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
