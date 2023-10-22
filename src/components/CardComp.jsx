@@ -37,7 +37,7 @@ const CardComp = () => {
   return (
     <>
       <Row xs={1} md={2} xl={3} xxl={4} className="g-4">
-        {datos.map((p) => (
+        {data.map((p) => (
           <Col key={p.id}>
             <Card>
               <Container className="card-img-cont d-flex justify-content-center align-items-center">
