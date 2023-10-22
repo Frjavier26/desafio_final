@@ -13,11 +13,11 @@ const CardComp = () => {
   const { datos, setDatos, verDetalle, addProduct, formatNum } =
     useContext(Context);
 
-  var getProducts = async () => {
+  const getProducts = async () => {
     const endpoint = '/productos';
 
     try {
-      var { data } = await axios.get(urlServer + endpoint);
+      const { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
       console.log('Ejecuta el Try de getProductos');
       console.log('Data de productos: ', data);
@@ -37,7 +37,7 @@ const CardComp = () => {
   return (
     <>
       <Row xs={1} md={2} xl={3} xxl={4} className="g-4">
-        {[data].map((p) => (
+        {datos.map((p) => (
           <Col key={p.id}>
             <Card>
               <Container className="card-img-cont d-flex justify-content-center align-items-center">
