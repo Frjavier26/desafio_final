@@ -17,7 +17,7 @@ const ItemsCards = () => {
     setDatos,
     editarProducto2,
     formatNum,
-    usuarioGlobal,
+    usuarioLogeado,
     urlServer,
   } = useContext(Context);
 
@@ -36,7 +36,7 @@ const ItemsCards = () => {
     }
   };
 
-  console.log('usuarioGlobal: ', usuarioGlobal);
+  console.log('usuarioLogeado: ', usuarioLogeado);
 
   const refreshPage = () => {
     window.location.reload();
@@ -68,7 +68,7 @@ const ItemsCards = () => {
     <>
       <Row xs={1} md={2} xl={3} xxl={4} className="g-4">
         {datos
-          .filter((el) => el.user_email === usuarioGlobal.user_email)
+          .filter((el) => el.user_email === usuarioLogeado.user_email)
           .map((p) => (
             <Col key={p.id}>
               <Card>

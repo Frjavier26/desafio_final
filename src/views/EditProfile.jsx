@@ -10,10 +10,10 @@ import { Context } from '../Context';
 
 function EditProfile() {
   const navigate = useNavigate();
-  const { usuarioGlobal, urlServer } = useContext(Context);
+  const { usuarioLogeado, urlServer } = useContext(Context);
   const [usuario, setUsuario] = useState({
-    name: `${usuarioGlobal.user_name}`,
-    lastName: `${usuarioGlobal.user_lastname}`,
+    name: `${usuarioLogeado.user_name}`,
+    lastName: `${usuarioLogeado.user_lastname}`,
   });
 
   const handleSetUsuario = ({ target: { value, name } }) => {
@@ -26,7 +26,7 @@ function EditProfile() {
   };
 
   const actualizarUsuario = async () => {
-    const endpoint = `/usuarios/${usuarioGlobal.id}`;
+    const endpoint = `/usuarios/${usuarioLogeado.id}`;
     const token = localStorage.getItem('token');
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ function EditProfile() {
               className="form-control"
               name="name"
               onChange={handleSetUsuario}
-              placeholder={usuarioGlobal.user_name}
+              placeholder={usuarioLogeado.user_name}
             />
           </Form.Group>
 
@@ -67,7 +67,7 @@ function EditProfile() {
               className="form-control"
               name="lastName"
               onChange={handleSetUsuario}
-              placeholder={usuarioGlobal.user_lastname}
+              placeholder={usuarioLogeado.user_lastname}
             />
           </Form.Group>
 

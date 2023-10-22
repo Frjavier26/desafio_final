@@ -10,7 +10,7 @@ export const Provider = ({ children }) => {
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
-  const [usuarioGlobal, setUsuarioGlobal] = useState([]);
+  const [usuarioLogeado, setUsuarioLogeado] = useState([]);
 
   const urlServer = 'https://backend-desafio-final.onrender.com';
   //const urlServer = 'http://localhost:3000';
@@ -147,8 +147,8 @@ export const Provider = ({ children }) => {
   }
 
   const globalState = {
-    usuarioGlobal,
-    setUsuarioGlobal,
+    usuarioLogeado,
+    setUsuarioLogeado,
     getProducts,
     datos,
     setDatos,

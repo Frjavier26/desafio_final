@@ -13,7 +13,7 @@ export default function Dashboard() {
     goToAddItem,
     goToEditProfile,
     goToMyItems,
-    setUsuarioGlobal,
+    setUsuarioLogeado,
   } = useContext(Context);
 
   const getUserData = async () => {
@@ -23,7 +23,7 @@ export default function Dashboard() {
     const { data } = await axios.get(urlServer + endpoint, {
       headers: { Authorization: 'Bearer ' + token },
     });
-    setUsuarioGlobal(data);
+    setUsuarioLogeado(data);
     setUsuarioLocal(data);
     console.log('data usuarios API: ', data);
     console.log('token: ', token);
