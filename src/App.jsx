@@ -10,7 +10,6 @@ import NotFound from './views/NotFound';
 import Login from './views/Login';
 import Registro from './views/Registro';
 import Footer from './components/Footer';
-import Dashboard from './components/Dashboard';
 import MyItems from './views/MyItems';
 import EditItem from './views/EditItem';
 import AddItem from './views/AddItem';
@@ -29,11 +28,10 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/myItems" element={<MyItems />} />
             <Route path="/addItem" element={<AddItem />} />
             <Route path="/editItem" element={<EditItem />} />
-            <Route path="/editprofile" element={<EditProfile />} />
+            <Route path="/editProfile" element={<EditProfile />} />
           </Routes>
         </main>
         <Footer />

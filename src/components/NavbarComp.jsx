@@ -58,7 +58,7 @@ export default function NavbarComp() {
             <strong>{formatNum(tot)}</strong>
           </NavLink>
           <Container className="px-0">
-            <NavLink className={setActiveClass} to="/dashboard">
+            <NavLink className={setActiveClass} to="/myItems">
               <OverlayTrigger
                 placement="bottom"
                 overlay={<Tooltip id="tooltip-gz">Dashboard</Tooltip>}

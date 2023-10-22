@@ -11,7 +11,6 @@ export default function Dashboard() {
   const {
     urlServer,
     goToAddItem,
-    goToItemsList,
     goToEditProfile,
     goToMyItems,
     setUsuarioGlobal,
