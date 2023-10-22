@@ -105,10 +105,7 @@ const ItemsCards = () => {
                       variant="outline-danger"
                       value={p.id}
                       onClick={(e) => {
-                        {
-                          eliminarProducto(e.target.value);
-                          refreshPage();
-                        }
+                        eliminarProducto(e.target.value);
                       }}
                     >
                       Eliminar{'   '}
