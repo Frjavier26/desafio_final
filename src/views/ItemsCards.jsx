@@ -30,7 +30,7 @@ const ItemsCards = () => {
       console.log('Ejecuta el Try de getProductos');
       console.log('Data de productos: ', data);
       console.log('Estado datos: ', datos);
-    } catch ({ response: { data: message } }) {
+    } catch ({ message }) {
       alert(message + ' 🙁');
       console.log(message);
     }
