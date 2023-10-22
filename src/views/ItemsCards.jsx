@@ -42,12 +42,6 @@ const ItemsCards = () => {
     window.location.reload();
   };
 
-  useEffect(() => {
-    return () => {
-      getProducts();
-    };
-  }, []);
-
   const eliminarProducto = async (pid) => {
     const endpoint = `/productos/${pid}`;
     const token = localStorage.getItem('token');
@@ -57,12 +51,19 @@ const ItemsCards = () => {
     try {
       await axios.delete(urlServer + endpoint, { headers });
       alert('Producto eliminado con éxito');
+      getProducts();
       navigate('/myItems');
     } catch (error) {
       alert('Algo salió mal ...');
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      getProducts();
+    };
+  }, []);
 
   return (
     <>
