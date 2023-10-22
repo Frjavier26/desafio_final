@@ -5,15 +5,37 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Context } from '../Context';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ItemsCards = () => {
   const navigate = useNavigate();
-  const { datos, editarProducto2, formatNum, usuarioGlobal, urlServer } =
-    useContext(Context);
+  const {
+    datos,
+    setDatos,
+    editarProducto2,
+    formatNum,
+    usuarioGlobal,
+    urlServer,
+  } = useContext(Context);
+
+  const getProducts = async () => {
+    const endpoint = '/productos';
+
+    try {
+      const { data } = await axios.get(urlServer + endpoint);
+      setDatos(data);
+      console.log('Ejecuta el Try de getProductos');
+      console.log('Data de productos: ', data);
+      console.log('Estado datos: ', datos);
+    } catch ({ response: { data: message } }) {
+      alert(message + ' 🙁');
+      console.log(message);
+    }
+  };
+
   console.log('datos: ', datos);
   console.log('usuarioGlobal: ', usuarioGlobal);
 
@@ -21,6 +43,11 @@ const ItemsCards = () => {
     window.location.reload();
   };
 
+  useEffect(() => {
+    return () => {
+      getProducts();
+    };
+  }, []);
   const eliminarProducto = async (pid) => {
     const endpoint = `/productos/${pid}`;
     const token = localStorage.getItem('token');
