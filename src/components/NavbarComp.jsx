@@ -16,9 +16,11 @@ import {
 import { Context } from '../Context';
 
 export default function NavbarComp() {
+  const { cart, formatNum, goToHome } = useContext(Context);
+  const token = localStorage.getItem('token');
   const setActiveClass = ({ isActive }) =>
     isActive ? 'active' : 'td-none txt-violet';
-  const { cart, formatNum, goToHome } = useContext(Context);
+
   console.log('cart: ', cart);
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
@@ -50,7 +52,7 @@ export default function NavbarComp() {
               overlay={<Tooltip id="tooltip-gz">Dashboard</Tooltip>}
             >
               <FontAwesomeIcon
-                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                className={token ? 'nav-icon-spc' : 'dn'}
                 icon={faTableColumns}
                 size="lg"
               />
@@ -63,7 +65,7 @@ export default function NavbarComp() {
               overlay={<Tooltip id="tooltip-gz">Cerrar Sesión</Tooltip>}
             >
               <FontAwesomeIcon
-                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                className={token ? 'nav-icon-spc' : 'dn'}
                 icon={faUserXmark}
                 style={{ color: '#e71861' }}
                 size="lg"
@@ -78,7 +80,7 @@ export default function NavbarComp() {
               overlay={<Tooltip id="tooltip-gz">Login</Tooltip>}
             >
               <FontAwesomeIcon
-                className="nav-icon-spc" //usar clase dn para ocultar botón cuando el usuario se deslogee
+                className={'nav-icon-spc'}
                 icon={faUserCheck}
                 size="lg"
               />
