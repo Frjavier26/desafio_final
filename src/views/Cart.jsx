@@ -8,8 +8,16 @@ import { useContext } from 'react';
 import { Context } from '../Context';
 
 const Cart = () => {
-  const { cart, irAHome, emptyCart, show, handleClose, formatNum, addQ, rmvQ } =
-    useContext(Context);
+  const {
+    cart,
+    goToHome,
+    emptyCart,
+    show,
+    handleClose,
+    formatNum,
+    addQ,
+    rmvQ,
+  } = useContext(Context);
 
   console.log(cart);
 
@@ -81,7 +89,7 @@ const Cart = () => {
                       variant="outline-warning"
                       className="ms-2"
                       onClick={() => {
-                        irAHome();
+                        goToHome();
                       }}
                     >
                       Seguir navegando
@@ -116,7 +124,7 @@ const Cart = () => {
                           variant="warning"
                           onClick={() => {
                             handleClose();
-                            irAHome();
+                            goToHome();
                           }}
                         >
                           Ver productos

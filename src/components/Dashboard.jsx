@@ -62,9 +62,6 @@ export default function Dashboard() {
                 <Dropdown.Item onClick={goToAddItem}>
                   Crear Publicación
                 </Dropdown.Item>
-                <Dropdown.Item onClick={goToItemsList}>
-                  Modificar Publicación
-                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>

@@ -21,7 +21,7 @@ function EditProfile() {
     field[name] = value;
     setUsuario({ ...usuario, ...field });*/
     setUsuario({ ...usuario, [name]: value });
-    console.log(field);
+    console.log(`${name}`, value);
     console.log('usuario: ', usuario);
   };
 
@@ -42,36 +42,41 @@ function EditProfile() {
   };
 
   return (
-    <Container className="nav-spc2 mb-5">
+    <div className="nav-spc">
       <Dashboard />
-      <Form onSubmit={actualizarUsuario}>
-        <Form.Group className="mb-3" controlId="formGridAddress1">
-          <Form.Label>Nombre</Form.Label>
-          <input
-            value={usuario.user_name}
-            className="form-control"
-            name="name"
-            onChange={handleSetUsuario}
-            placeholder={usuarioGlobal.user_name}
-          />
-        </Form.Group>
+      <Container className="pb-4">
+        <h2 className="text-center txt-violet py-4 mb-4 bg-light d-flex align-items-center justify-content-center">
+          Editar perfil
+        </h2>
+        <Form onSubmit={actualizarUsuario}>
+          <Form.Group className="mb-3" controlId="formGridAddress1">
+            <Form.Label>Nombre</Form.Label>
+            <input
+              value={usuario.user_name}
+              className="form-control"
+              name="name"
+              onChange={handleSetUsuario}
+              placeholder={usuarioGlobal.user_name}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGridAddress2">
-          <Form.Label>Apellido</Form.Label>
-          <input
-            value={usuario.user_lastname}
-            className="form-control"
-            name="lastName"
-            onChange={handleSetUsuario}
-            placeholder={usuarioGlobal.user_lastname}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formGridAddress2">
+            <Form.Label>Apellido</Form.Label>
+            <input
+              value={usuario.user_lastname}
+              className="form-control"
+              name="lastName"
+              onChange={handleSetUsuario}
+              placeholder={usuarioGlobal.user_lastname}
+            />
+          </Form.Group>
 
-        <Button variant="info" onClick={actualizarUsuario}>
-          Actualizar!
-        </Button>
-      </Form>
-    </Container>
+          <Button variant="info" onClick={actualizarUsuario}>
+            Guardar cambios
+          </Button>
+        </Form>
+      </Container>
+    </div>
   );
 }
 

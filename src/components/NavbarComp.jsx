@@ -18,7 +18,7 @@ import { Context } from '../Context';
 export default function NavbarComp() {
   const setActiveClass = ({ isActive }) =>
     isActive ? 'active' : 'td-none txt-violet';
-  const { cart, formatNum, irAHome } = useContext(Context);
+  const { cart, formatNum, goToHome } = useContext(Context);
   console.log('cart: ', cart);
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
@@ -32,7 +32,7 @@ export default function NavbarComp() {
       <Container>
         <Navbar.Brand
           onClick={() => {
-            irAHome();
+            goToHome();
           }}
         >
           <span>

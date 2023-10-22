@@ -95,16 +95,12 @@ export const Provider = ({ children }) => {
     }
   }
 
-  function irAHome() {
+  function goToHome() {
     navigate(`/`);
   }
 
-  function irACarro() {
+  function goToCart() {
     navigate(`/cart`);
-  }
-
-  function goToItemsList() {
-    navigate(`/itemslist`);
   }
 
   function goToAddItem() {
@@ -117,10 +113,6 @@ export const Provider = ({ children }) => {
 
   function goToMyItems() {
     navigate(`myItems`);
-  }
-
-  function getUser() {
-    return user;
   }
 
   const addQ = (pid) => {
@@ -158,7 +150,6 @@ export const Provider = ({ children }) => {
     usuarioGlobal,
     setUsuarioGlobal,
     getProducts,
-    getUser,
     datos,
     setDatos,
     verDetalle,
@@ -166,9 +157,8 @@ export const Provider = ({ children }) => {
     selectedProduct,
     addProduct,
     cart,
-    irAHome,
+    goToHome,
     goToAddItem,
-    goToItemsList,
     goToEditProfile,
     goToMyItems,
     emptyCart,
@@ -177,7 +167,7 @@ export const Provider = ({ children }) => {
     handleClose,
     handleShow,
     formatText,
-    irACarro,
+    goToCart,
     addQ,
     rmvQ,
     urlServer,

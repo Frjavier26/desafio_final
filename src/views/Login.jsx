@@ -19,7 +19,7 @@ function Login() {
     field[name] = value;
     setUsuario({ ...usuario, ...field });*/
     setUsuario({ ...usuario, [name]: value });
-    console.log(field);
+    console.log(`${name}`, value);
   };
 
   const iniciarSesion = async () => {

@@ -17,7 +17,7 @@ const Detail = () => {
     show,
     handleClose,
     handleShow,
-    irAHome,
+    goToHome,
     formatText,
     irACarro,
   } = useContext(Context);
@@ -51,7 +51,7 @@ const Detail = () => {
                       <Button
                         className="m-2"
                         variant="outline-warning"
-                        onClick={irAHome}
+                        onClick={goToHome}
                       >
                         Ver otros productos
                       </Button>
@@ -93,7 +93,7 @@ const Detail = () => {
                             variant="warning"
                             onClick={() => {
                               handleClose();
-                              irAHome();
+                              goToHome();
                             }}
                           >
                             Ver productos
