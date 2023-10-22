@@ -51,7 +51,6 @@ const ItemsCards = () => {
     try {
       await axios.delete(urlServer + endpoint, { headers });
       alert('Producto eliminado con éxito');
-      getProducts();
       navigate('/myItems');
     } catch (error) {
       alert('Algo salió mal ...');
