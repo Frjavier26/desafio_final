@@ -19,7 +19,7 @@ const Detail = () => {
     handleShow,
     goToHome,
     formatText,
-    irACarro,
+    goToCart,
   } = useContext(Context);
 
   return (
@@ -103,7 +103,7 @@ const Detail = () => {
                             className="ms-2"
                             onClick={() => {
                               handleClose();
-                              irACarro();
+                              goToCart();
                             }}
                           >
                             Ver carrito
