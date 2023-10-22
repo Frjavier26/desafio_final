@@ -2,17 +2,17 @@ import Container from 'react-bootstrap/esm/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Context } from '../Context';
 import axios from 'axios';
 
 export default function Dashboard() {
-  const [usuario, setUsuarioLocal] = useState({});
   const {
     urlServer,
     goToAddItem,
     goToEditProfile,
     goToMyItems,
+    usuarioLogeado,
     setUsuarioLogeado,
   } = useContext(Context);
 
@@ -24,7 +24,6 @@ export default function Dashboard() {
       headers: { Authorization: 'Bearer ' + token },
     });
     setUsuarioLogeado(data);
-    setUsuarioLocal(data);
     console.log('data usuarios API: ', data);
     console.log('token: ', token);
   };
@@ -41,7 +40,7 @@ export default function Dashboard() {
         <Navbar className="justify-content-between align-items-center dashboard-style px-3">
           <div>
             <h2>
-              Dashboard de <span>{usuario.user_name}</span>
+              Dashboard de <span>{usuarioLogeado.user_name}</span>
             </h2>
           </div>
           <div>
