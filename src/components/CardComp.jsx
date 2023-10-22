@@ -10,7 +10,7 @@ import { Context } from '../Context';
 import axios from 'axios';
 
 const CardComp = () => {
-  const { datos, setDatos, verDetalle, addProduct, formatNum } =
+  const { datos, setDatos, verDetalle, addProduct, formatNum, urlServer } =
     useContext(Context);
 
   const getProducts = async () => {
