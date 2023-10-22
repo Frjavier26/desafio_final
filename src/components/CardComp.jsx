@@ -7,9 +7,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../Context';
+import axios from 'axios';
 
 const CardComp = () => {
-  const { datos, verDetalle, addProduct, formatNum } = useContext(Context);
+  const { datos, setDatos, verDetalle, addProduct, formatNum } =
+    useContext(Context);
+
+  const getProducts = async () => {
+    const endpoint = '/productos';
+
+    try {
+      const { data } = await axios.get(urlServer + endpoint);
+      setDatos(data);
+      console.log('Ejecuta el Try de getProductos');
+      console.log('Data de productos: ', data);
+      console.log('Estado datos: ', datos);
+    } catch ({ response: { data: message } }) {
+      alert(message + ' 🙁');
+      console.log(message);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      getProducts();
+    };
+  }, []);
 
   return (
     <>

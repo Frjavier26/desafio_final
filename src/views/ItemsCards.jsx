@@ -36,7 +36,6 @@ const ItemsCards = () => {
     }
   };
 
-  console.log('datos: ', datos);
   console.log('usuarioGlobal: ', usuarioGlobal);
 
   const refreshPage = () => {
@@ -48,6 +47,7 @@ const ItemsCards = () => {
       getProducts();
     };
   }, []);
+
   const eliminarProducto = async (pid) => {
     const endpoint = `/productos/${pid}`;
     const token = localStorage.getItem('token');
