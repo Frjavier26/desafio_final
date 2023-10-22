@@ -13,11 +13,11 @@ const CardComp = () => {
   const { datos, setDatos, verDetalle, addProduct, formatNum } =
     useContext(Context);
 
-  const getProducts = async () => {
+  var getProducts = async () => {
     const endpoint = '/productos';
 
     try {
-      const { data } = await axios.get(urlServer + endpoint);
+      var { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
       console.log('Ejecuta el Try de getProductos');
       console.log('Data de productos: ', data);
