@@ -12,20 +12,20 @@ function EditProfile() {
   const navigate = useNavigate();
   const { usuarioGlobal, urlServer } = useContext(Context);
   const [usuario, setUsuario] = useState({
-    name: `${usuarioGlobal.user_name}`, // Valor inicial para name
-    lastName: `${usuarioGlobal.user_lastname}`, // Valor inicial para lastName});
+    name: `${usuarioGlobal.user_name}`,
+    lastName: `${usuarioGlobal.user_lastname}`,
   });
 
   const handleSetUsuario = ({ target: { value, name } }) => {
-    const field = {};
+    /*const field = {};
     field[name] = value;
-    setUsuario({ ...usuario, ...field });
+    setUsuario({ ...usuario, ...field });*/
+    setUsuario({ ...usuario, [name]: value });
     console.log(field);
     console.log('usuario: ', usuario);
   };
 
   const actualizarUsuario = async () => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = `/usuarios/${usuarioGlobal.id}`;
     const token = localStorage.getItem('token');
     const headers = {

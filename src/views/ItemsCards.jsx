@@ -22,7 +22,6 @@ const ItemsCards = () => {
   };
 
   const eliminarProducto = async (pid) => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = `/productos/${pid}`;
     const token = localStorage.getItem('token');
     const headers = {

@@ -15,14 +15,14 @@ function Login() {
   const [usuario, setUsuario] = useState({});
 
   const handleSetUsuario = ({ target: { value, name } }) => {
-    const field = {};
+    /*const field = {};
     field[name] = value;
-    setUsuario({ ...usuario, ...field });
+    setUsuario({ ...usuario, ...field });*/
+    setUsuario({ ...usuario, [name]: value });
     console.log(field);
   };
 
   const iniciarSesion = async () => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = '/login';
     const { user_email, user_password } = usuario;
 
@@ -40,16 +40,6 @@ function Login() {
       console.log(message);
     }
   };
-
-  /*const validarDatos = () => {
-    if (email === '' || password === '') {
-      setError(true);
-      return;
-    }
-    setError(false);
-    setEmail('');
-    setPassword('');
-  };*/
 
   return (
     <Container className="nav-spc2 mb-5">

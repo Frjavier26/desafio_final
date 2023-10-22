@@ -18,7 +18,6 @@ export default function Dashboard() {
   } = useContext(Context);
 
   const getUserData = async () => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = '/usuarios';
     const token = localStorage.getItem('token');
 
@@ -27,19 +26,8 @@ export default function Dashboard() {
     });
     setUsuarioGlobal(data);
     setUsuarioLocal(data);
-    console.log('data: ', data);
+    console.log('data usuarios API: ', data);
     console.log('token: ', token);
-    /*try {
-      const { data } = await axios.get(urlServer + endpoint, {
-        headers: { Authorization: 'Bearer ' + token },
-      });
-      setUsuarioGlobal(data);
-      console.log('data: ', data);
-      console.log('usuarioGlobal: ', usuarioGlobal);
-    } catch ({ message }) {
-      alert('catch de getUserData: ', message + ' 🙁');
-      console.log(message);
-    }*/
   };
 
   useEffect(() => {

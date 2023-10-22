@@ -12,14 +12,13 @@ export const Provider = ({ children }) => {
   const [show, setShow] = useState(false);
   const [usuarioGlobal, setUsuarioGlobal] = useState([]);
 
-  const urlServer = 'https://backend-desafio-final.onrender.com';
-  //const urlServer = 'http://localhost:3000';
+  //const urlServer = 'https://backend-desafio-final.onrender.com';
+  const urlServer = 'http://localhost:3000';
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const getProducts = async () => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = '/productos';
 
     try {
@@ -65,9 +64,9 @@ export const Provider = ({ children }) => {
       .map((p) => {
         return {
           id: p.id,
-          url_imagen: p.img_url,
-          nombre_producto: p.product_name,
-          precio: p.price,
+          img_url: p.img_url,
+          product_name: p.product_name,
+          price: p.price,
           q: 1,
         };
       });

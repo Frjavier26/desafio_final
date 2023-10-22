@@ -9,7 +9,7 @@ import axios from 'axios';
 import Dashboard from '../components/Dashboard';
 import { Context } from '../Context';
 
-function EditItems() {
+function EditItem() {
   const navigate = useNavigate();
   const { selectedProduct, getProducts, urlServer } = useContext(Context);
   console.log('selected product en editar: ', selectedProduct);
@@ -23,16 +23,15 @@ function EditItems() {
   console.log('producto state: ', producto);
 
   const handleSetProducto = ({ target: { value, name } }) => {
-    const field = {};
+    /*const field = {};
     field[name] = value;
-    setProducto({ ...producto, ...field });
-    //setProducto({ ...producto, [name]: value });
+    setProducto({ ...producto, ...field });*/
+    setProducto({ ...producto, [name]: value });
     console.log('field producto: ', field);
     console.log('producto: ', producto);
   };
 
   const editarProducto = async () => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = `/productos/${selectedProduct[0].id}`;
     const token = localStorage.getItem('token');
     const headers = {
@@ -129,4 +128,4 @@ function EditItems() {
   );
 }
 
-export default EditItems;
+export default EditItem;

@@ -11,6 +11,8 @@ const Cart = () => {
   const { cart, irAHome, emptyCart, show, handleClose, formatNum, addQ, rmvQ } =
     useContext(Context);
 
+  console.log(cart);
+
   const tot = cart.reduce((prev, { price, q }) => prev + price * q, 0);
 
   return (

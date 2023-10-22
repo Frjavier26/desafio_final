@@ -9,25 +9,20 @@ import { useContext } from 'react';
 import { Context } from '../Context';
 import axios from 'axios';
 
-function GridComplexExample() {
-  /*const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);*/
+function Registro() {
   const { urlServer } = useContext(Context);
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
 
   const handleSetUsuario = ({ target: { value, name } }) => {
-    const field = {};
+    /*const field = {};
     field[name] = value;
-    setUsuario({ ...usuario, ...field });
+    setUsuario({ ...usuario, ...field });*/
+    setUsuario({ ...usuario, [name]: value });
     console.log(field);
   };
 
   const registrarUsuario = async () => {
-    //const urlServer = 'http://localhost:3000';
     const endpoint = '/usuarios';
     try {
       await axios.post(urlServer + endpoint, usuario);
@@ -39,19 +34,6 @@ function GridComplexExample() {
     }
   };
 
-  /*const validarInput = (e) => {
-    e.preventDefault();
-    if (nombre === '' || apellido === '' || password === '' || email === '') {
-      setError(true);
-      return;
-    }
-    setError(false);
-    setNombre('');
-    setApellido('');
-    setPassword('');
-    setEmail('');
-    //registrarUsuario();
-  };*/
   return (
     <Container className="nav-spc2 mb-5">
       <Form onSubmit={registrarUsuario}>
@@ -107,4 +89,4 @@ function GridComplexExample() {
   );
 }
 
-export default GridComplexExample;
+export default Registro;
