@@ -35,8 +35,8 @@ function Login() {
       localStorage.setItem('token', token);
 
       navigate('/myitems');
-    } catch ({ message }) {
-      alert(message + 'catch de iniciar sesión 🙁');
+    } catch (error) {
+      alert('El usuario o contraseña son incorrectos, intenta nuevamente.');
       console.log(message);
     }
   };

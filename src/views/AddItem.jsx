@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import Figure from 'react-bootstrap/Figure';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -13,7 +14,7 @@ import { Context } from '../Context';
 function AddItem() {
   const navigate = useNavigate();
   const [producto, setProducto] = useState({});
-  const { setDatos, urlServer } = useContext(Context);
+  const { setDatos, goToMyItems, urlServer } = useContext(Context);
 
   const getProducts = async () => {
     const endpoint = '/productos';
@@ -54,6 +55,10 @@ function AddItem() {
     }
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="nav-spc">
       <Dashboard />
@@ -88,12 +93,24 @@ function AddItem() {
 
           <Form.Group className="mb-3" controlId="formGridImg">
             <Form.Label>Imagen</Form.Label>
-            <input
-              value={producto.img_url}
-              className="form-control"
-              name="url"
-              onChange={handleSetProducto}
-            />
+            <div className="d-flex align-items-center justify-content-between">
+              <Figure className="d-flex m-0 p-0 align-items-center">
+                <Figure.Image
+                  width={100}
+                  height={100}
+                  //alt="Imagen del producto"
+                  src={producto.url}
+                  className="m-0 p-0"
+                />
+              </Figure>
+
+              <input
+                value={producto.img_url}
+                className="form-control ms-3"
+                name="url"
+                onChange={handleSetProducto}
+              />
+            </div>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -121,10 +138,19 @@ function AddItem() {
               rows={3}
             />
           </Form.Group>
+          <div className="d-flex justify-content-between">
+            <Button variant="info" onClick={registrarProducto}>
+              Agrega tu Producto
+            </Button>
 
-          <Button variant="info" onClick={registrarProducto}>
-            Agrega tu Producto!
-          </Button>
+            <Button
+              className="ms-2"
+              variant="outline-danger"
+              onClick={goToMyItems}
+            >
+              Cancelar
+            </Button>
+          </div>
         </Form>
       </Container>
     </div>

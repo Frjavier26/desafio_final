@@ -10,7 +10,7 @@ import { Context } from '../Context';
 
 function EditProfile() {
   const navigate = useNavigate();
-  const { usuarioLogeado, urlServer } = useContext(Context);
+  const { usuarioLogeado, goToMyItems, urlServer } = useContext(Context);
   const [usuario, setUsuario] = useState({
     name: `${usuarioLogeado.user_name}`,
     lastName: `${usuarioLogeado.user_lastname}`,
@@ -70,10 +70,18 @@ function EditProfile() {
               placeholder={usuarioLogeado.user_lastname}
             />
           </Form.Group>
-
-          <Button variant="info" onClick={actualizarUsuario}>
-            Guardar cambios
-          </Button>
+          <div className="d-flex justify-content-between">
+            <Button variant="info" onClick={actualizarUsuario}>
+              Guardar cambios
+            </Button>
+            <Button
+              className="ms-2"
+              variant="outline-danger"
+              onClick={goToMyItems}
+            >
+              Cancelar
+            </Button>
+          </div>
         </Form>
       </Container>
     </div>

@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Image from 'react-bootstrap/Image';
+import Figure from 'react-bootstrap/Figure';
 import Button from 'react-bootstrap/Button';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import Modal from 'react-bootstrap/Modal';
@@ -35,13 +35,14 @@ const Cart = () => {
                   <ListGroup.Item className="px-0" key={p.id}>
                     <Container className="p-0 d-flex justify-content-between align-items-center">
                       <div className="d-flex align-items-center">
-                        <div>
-                          <Image
-                            className="cart-img mx-2"
-                            src={p.img_url}
-                            rounded
-                          />
-                        </div>
+                        <Figure.Image
+                          width={70}
+                          height={70}
+                          alt={p.product_name}
+                          src={p.img_url}
+                          className="mb-0 mx-2"
+                        />
+
                         <div>
                           <span
                             style={{ textTransform: 'capitalize' }}

@@ -19,33 +19,45 @@ function Registro() {
     field[name] = value;
     setUsuario({ ...usuario, ...field });*/
     setUsuario({ ...usuario, [name]: value });
-    console.log(field);
+    console.log('field: ', name, value);
   };
 
   const registrarUsuario = async () => {
     const endpoint = '/usuarios';
-    try {
-      await axios.post(urlServer + endpoint, usuario);
-      alert('Usuario registrado con éxito');
-      navigate('/login');
-    } catch (error) {
-      alert('Algo salió mal ...');
-      console.log(error);
+    if (
+      !usuario.name ||
+      !usuario.lastName ||
+      !usuario.email ||
+      !usuario.password
+    ) {
+      alert(
+        'Recuerde que todos los datos son obligatorios, revise antes de registrarse.'
+      );
+    } else {
+      try {
+        await axios.post(urlServer + endpoint, usuario);
+        alert('Usuario registrado con éxito');
+        navigate('/login');
+      } catch (error) {
+        alert('Error al crear el usuario.');
+        console.log(error);
+      }
     }
   };
 
   return (
     <Container className="nav-spc2 mb-5">
-      <Form onSubmit={registrarUsuario}>
+      <Form>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
-            <input
+            <Form.Control
               value={usuario.user_email}
               className="form-control"
               type="email"
               name="email"
               onChange={handleSetUsuario}
+              required
             />
           </Form.Group>
 
@@ -57,27 +69,30 @@ function Registro() {
               type="password"
               name="password"
               onChange={handleSetUsuario}
+              required
             />
           </Form.Group>
         </Row>
 
         <Form.Group className="mb-3" controlId="formGridAddress1">
           <Form.Label>Nombre</Form.Label>
-          <input
+          <Form.Control
             value={usuario.user_name}
             className="form-control"
             name="name"
             onChange={handleSetUsuario}
+            required
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formGridAddress2">
           <Form.Label>Apellido</Form.Label>
-          <input
+          <Form.Control
             value={usuario.user_lastname}
             className="form-control"
             name="lastName"
             onChange={handleSetUsuario}
+            required
           />
         </Form.Group>
 

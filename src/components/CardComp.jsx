@@ -56,7 +56,9 @@ const CardComp = () => {
                   {p.product_name}
                 </Card.Title>
                 <hr></hr>
-
+                <Card.Text className="text-secondary">
+                  {p.short_description}
+                </Card.Text>
                 <Card.Title className="text-center fs-4 my-5 text-secondary">
                   {formatNum(p.price)}
                 </Card.Title>

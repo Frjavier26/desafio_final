@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import Figure from 'react-bootstrap/Figure';
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,7 +12,8 @@ import { Context } from '../Context';
 
 function EditItem() {
   const navigate = useNavigate();
-  const { selectedProduct, getProducts, urlServer } = useContext(Context);
+  const { selectedProduct, getProducts, goToMyItems, urlServer } =
+    useContext(Context);
   console.log('selected product en editar: ', selectedProduct);
   const [producto, setProducto] = useState({
     producto: `${selectedProduct[0].product_name}`,
@@ -27,7 +29,7 @@ function EditItem() {
     field[name] = value;
     setProducto({ ...producto, ...field });*/
     setProducto({ ...producto, [name]: value });
-    console.log('field producto: ', field);
+    console.log('field producto: ', name, value);
     console.log('producto: ', producto);
   };
 
@@ -46,6 +48,10 @@ function EditItem() {
       alert('Algo salió mal ...');
       console.log(error);
     }
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
   };
 
   return (
@@ -83,14 +89,25 @@ function EditItem() {
           </Row>
 
           <Form.Group className="mb-3" controlId="formGridImg">
-            <Form.Label>Modifica tu Imagen</Form.Label>
-            <input
-              value={producto.img_url}
-              className="form-control"
-              name="img"
-              onChange={handleSetProducto}
-              placeholder={selectedProduct[0].img_url}
-            />
+            <Form.Label>Imagen del producto</Form.Label>
+            <div className="d-flex align-items-center justify-content-between">
+              <Figure className="d-flex m-0 p-0 align-items-center">
+                <Figure.Image
+                  width={100}
+                  height={100}
+                  alt="Imagen del producto"
+                  src={selectedProduct[0].img_url}
+                  className="m-0 p-0"
+                />
+              </Figure>
+              <input
+                value={producto.img_url}
+                className="form-control ms-3"
+                name="img"
+                onChange={handleSetProducto}
+                placeholder={selectedProduct[0].img_url}
+              />
+            </div>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -118,10 +135,23 @@ function EditItem() {
               placeholder={selectedProduct[0].long_description}
             />
           </Form.Group>
-
-          <Button variant="info" onClick={editarProducto}>
-            Modifica tu Producto!
-          </Button>
+          <div className="d-flex justify-content-between">
+            <Button
+              variant="info"
+              onClick={() => {
+                editarProducto();
+              }}
+            >
+              Guardar cambios
+            </Button>
+            <Button
+              className="ms-2"
+              variant="outline-danger"
+              onClick={goToMyItems}
+            >
+              Cancelar
+            </Button>
+          </div>
         </Form>
       </Container>
     </div>
