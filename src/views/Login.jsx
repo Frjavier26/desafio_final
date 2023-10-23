@@ -26,7 +26,6 @@ function Login() {
       if (!user_email || !user_password)
         return alert('El correo y contraseña son obligatorios');
       const { data: token } = await axios.post(urlServer + endpoint, usuario);
-      console.log(token);
       alert('Usuario identificado con éxito 😀');
       localStorage.setItem('token', token);
       navigate('/myitems');
