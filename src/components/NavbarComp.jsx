@@ -17,8 +17,8 @@ import {
 
 export default function NavbarComp() {
   const { cart, formatNum, goToHome } = useContext(Context);
-
   const token = localStorage.getItem('token');
+
   const setActiveClass = ({ isActive }) =>
     isActive ? 'active' : 'td-none txt-violet';
 
@@ -45,6 +45,7 @@ export default function NavbarComp() {
             />
           </span>
         </Navbar.Brand>
+
         <Container className="px-0 text-end">
           <NavLink className={setActiveClass} to="/Cart">
             <FontAwesomeIcon
@@ -57,6 +58,7 @@ export default function NavbarComp() {
             </Badge>{' '}
             <strong>{formatNum(tot)}</strong>
           </NavLink>
+
           <Container className="px-0">
             <NavLink className={setActiveClass} to="/myItems">
               <OverlayTrigger
@@ -98,7 +100,7 @@ export default function NavbarComp() {
                 />
               </OverlayTrigger>
             </NavLink>
-            <span></span>
+
             <NavLink className={setActiveClass} to="/Registro">
               <OverlayTrigger
                 placement="bottom"

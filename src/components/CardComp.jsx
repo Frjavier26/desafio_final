@@ -19,11 +19,10 @@ const CardComp = () => {
     try {
       const { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
-      console.log('Ejecuta el Try de getProductos');
-      console.log('Data de productos: ', data);
-      console.log('Estado datos: ', datos);
     } catch ({ message }) {
-      alert(message + ' 🙁');
+      alert(
+        'Estamos experimentando problemas de conexión para mostrar los productos, recarga la página para verlos.'
+      );
       console.log(message);
     }
   };
@@ -55,13 +54,17 @@ const CardComp = () => {
                 >
                   {p.product_name}
                 </Card.Title>
+
                 <hr></hr>
+
                 <Card.Text className="text-secondary">
                   {p.short_description}
                 </Card.Text>
+
                 <Card.Title className="text-center fs-4 my-5 text-secondary">
                   {formatNum(p.price)}
                 </Card.Title>
+
                 <Container fluid className="d-flex justify-content-between">
                   <Button
                     variant="outline-warning"
@@ -70,6 +73,7 @@ const CardComp = () => {
                   >
                     Ver más
                   </Button>
+
                   <Button
                     variant="warning"
                     value={p.id}

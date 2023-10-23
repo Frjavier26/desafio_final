@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { Context } from '../Context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import React, { useState, useContext } from 'react';
+import { Context } from '../Context';
+import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Login() {
-  const { urlServer } = useContext(Context);
+  const { urlServer, goToHome } = useContext(Context);
 
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
 
   const handleSetUsuario = ({ target: { value, name } }) => {
-    /*const field = {};
-    field[name] = value;
-    setUsuario({ ...usuario, ...field });*/
     setUsuario({ ...usuario, [name]: value });
-    console.log(`${name}`, value);
   };
 
   const iniciarSesion = async () => {
@@ -28,15 +24,16 @@ function Login() {
 
     try {
       if (!user_email || !user_password)
-        return alert('Email y password obligatorias');
+        return alert('El correo y contraseña son obligatorios');
       const { data: token } = await axios.post(urlServer + endpoint, usuario);
       console.log(token);
       alert('Usuario identificado con éxito 😀');
       localStorage.setItem('token', token);
-
       navigate('/myitems');
     } catch (error) {
-      alert('El usuario o contraseña son incorrectos, intenta nuevamente.');
+      alert(
+        'El correo o contraseña son incorrectos, intenta nuevamente. Si no te has registrado, ve a la sección de registro.'
+      );
       console.log(message);
     }
   };
@@ -68,15 +65,18 @@ function Login() {
             onChange={handleSetUsuario}
           />
         </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
 
-        <Button
-          className="btn-detail m-2 px-2 py-1"
-          variant="info"
-          onClick={iniciarSesion}
-        >
-          Ingresa
-        </Button>
+        <div className="d-flex justify-content-between">
+          <Button variant="info" onClick={iniciarSesion}>
+            Ingresa
+          </Button>
+
+          <Button className="ms-2" variant="outline-danger" onClick={goToHome}>
+            Cancelar
+          </Button>
+        </div>
       </Form>
     </Container>
   );

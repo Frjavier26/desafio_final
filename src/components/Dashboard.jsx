@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/esm/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
-
 import { useContext, useEffect } from 'react';
 import { Context } from '../Context';
 import axios from 'axios';
@@ -19,13 +18,10 @@ export default function Dashboard() {
   const getUserData = async () => {
     const endpoint = '/usuarios';
     const token = localStorage.getItem('token');
-
     const { data } = await axios.get(urlServer + endpoint, {
       headers: { Authorization: 'Bearer ' + token },
     });
     setUsuarioLogeado(data);
-    console.log('data usuarios API: ', data);
-    console.log('token: ', token);
   };
 
   useEffect(() => {
@@ -53,10 +49,13 @@ export default function Dashboard() {
                 <Dropdown.Item onClick={goToEditProfile}>
                   Editar Perfil
                 </Dropdown.Item>
+
                 <Dropdown.Divider />
+
                 <Dropdown.Item onClick={goToMyItems}>
                   Mis Publicaciones
                 </Dropdown.Item>
+
                 <Dropdown.Item onClick={goToAddItem}>
                   Crear Publicación
                 </Dropdown.Item>

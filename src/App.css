@@ -106,25 +106,10 @@ a {
     text-decoration: none;
 }
 
-body {
-    min-height: 100vh;
-}
-
 .dashboard-style {
     margin-top: 66px;
     color:gold;
-    /* background-color: #6c757d; */
     background-color: #3f4041;
-}
-    
-    .buttons {
-
-        margin-left: 10px;
-        width: 185px ;
-        margin: 20px;
-        padding-right: 60;
-   background-color: #8a2be2;
-
 }
 
 .dn {

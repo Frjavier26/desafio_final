@@ -3,23 +3,19 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Context } from '../Context';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Registro() {
-  const { urlServer } = useContext(Context);
+  const { urlServer, goToHome } = useContext(Context);
+
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState({});
 
   const handleSetUsuario = ({ target: { value, name } }) => {
-    /*const field = {};
-    field[name] = value;
-    setUsuario({ ...usuario, ...field });*/
     setUsuario({ ...usuario, [name]: value });
-    console.log('field: ', name, value);
   };
 
   const registrarUsuario = async () => {
@@ -31,7 +27,7 @@ function Registro() {
       !usuario.password
     ) {
       alert(
-        'Recuerde que todos los datos son obligatorios, revise antes de registrarse.'
+        'Recuerda que todos los datos son obligatorios, revisa antes de registrarte.'
       );
     } else {
       try {
@@ -39,7 +35,9 @@ function Registro() {
         alert('Usuario registrado con éxito');
         navigate('/login');
       } catch (error) {
-        alert('Error al crear el usuario.');
+        alert(
+          'Hubo un error al intentar crear tu usuario, intenta nuevamente más tarde.'
+        );
         console.log(error);
       }
     }
@@ -50,7 +48,7 @@ function Registro() {
       <Form>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
+            <Form.Label>Correo</Form.Label>
             <Form.Control
               value={usuario.user_email}
               className="form-control"
@@ -62,7 +60,7 @@ function Registro() {
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Contraseña</Form.Label>
             <input
               value={usuario.user_password}
               className="form-control"
@@ -95,10 +93,15 @@ function Registro() {
             required
           />
         </Form.Group>
+        <div className="d-flex justify-content-between">
+          <Button variant="info" onClick={registrarUsuario}>
+            Regístrate
+          </Button>
 
-        <Button variant="info" onClick={registrarUsuario}>
-          Regístrate
-        </Button>
+          <Button className="ms-2" variant="outline-danger" onClick={goToHome}>
+            Cancelar
+          </Button>
+        </div>
       </Form>
     </Container>
   );

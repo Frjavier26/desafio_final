@@ -27,16 +27,13 @@ const ItemsCards = () => {
     try {
       const { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
-      console.log('Ejecuta el Try de getProductos');
-      console.log('Data de productos: ', data);
-      console.log('Estado datos: ', datos);
     } catch ({ message }) {
-      alert(message + ' 🙁');
+      alert(
+        'Hubo un error al intentar obtener tus products, intenta nuevamente más tarde.'
+      );
       console.log(message);
     }
   };
-
-  console.log('usuarioLogeado: ', usuarioLogeado);
 
   const refreshPage = () => {
     window.location.reload();
@@ -53,7 +50,9 @@ const ItemsCards = () => {
       alert('Producto eliminado con éxito');
       navigate('/myItems');
     } catch (error) {
-      alert('Algo salió mal ...');
+      alert(
+        'Hubo un error al intentar eliminar tu producto, intenta nuevamente más tarde.'
+      );
       console.log(error);
     }
   };

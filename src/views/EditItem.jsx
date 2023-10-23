@@ -5,16 +5,16 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Figure from 'react-bootstrap/Figure';
 import React, { useState, useContext } from 'react';
+import { Context } from '../Context';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from '../components/Dashboard';
-import { Context } from '../Context';
 
 function EditItem() {
   const navigate = useNavigate();
   const { selectedProduct, getProducts, goToMyItems, urlServer } =
     useContext(Context);
-  console.log('selected product en editar: ', selectedProduct);
+
   const [producto, setProducto] = useState({
     producto: `${selectedProduct[0].product_name}`,
     price: `${selectedProduct[0].price}`,
@@ -22,15 +22,9 @@ function EditItem() {
     descripcion_corta: `${selectedProduct[0].short_description}`,
     descripcion: `${selectedProduct[0].long_description}`,
   });
-  console.log('producto state: ', producto);
 
   const handleSetProducto = ({ target: { value, name } }) => {
-    /*const field = {};
-    field[name] = value;
-    setProducto({ ...producto, ...field });*/
     setProducto({ ...producto, [name]: value });
-    console.log('field producto: ', name, value);
-    console.log('producto: ', producto);
   };
 
   const editarProducto = async () => {
@@ -45,13 +39,11 @@ function EditItem() {
       alert('Producto modificado con éxito');
       navigate('/myItems');
     } catch (error) {
-      alert('Algo salió mal ...');
+      alert(
+        'Hubo un error al intentar modificar tu producto, intenta nuevamente más tarde.'
+      );
       console.log(error);
     }
-  };
-
-  const refreshPage = () => {
-    window.location.reload();
   };
 
   return (
@@ -64,7 +56,7 @@ function EditItem() {
         <Form>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridNombre">
-              <Form.Label>Ingresa tu nombre de Producto</Form.Label>
+              <Form.Label>Ingresa el nombre de tu producto</Form.Label>
               <input
                 value={producto.product_name}
                 className="form-control"
@@ -95,7 +87,7 @@ function EditItem() {
                 <Figure.Image
                   width={100}
                   height={100}
-                  alt="Imagen del producto"
+                  alt="Imagen"
                   src={selectedProduct[0].img_url}
                   className="m-0 p-0"
                 />
@@ -111,7 +103,7 @@ function EditItem() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Descripcion breve de tu producto</Form.Label>
+            <Form.Label>Descripción breve de tu producto</Form.Label>
             <Form.Control
               value={producto.short_description}
               className="form-control"
@@ -124,7 +116,7 @@ function EditItem() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Descripcion formal</Form.Label>
+            <Form.Label>Descripción completa de tu producto</Form.Label>
             <Form.Control
               value={producto.long_description}
               className="form-control"

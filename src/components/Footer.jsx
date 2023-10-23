@@ -10,7 +10,7 @@ const Footer = () => (
       <div className="row">
         <div className="col-md-6 mt-md-0 mt-3">
           <h5>GameZone</h5>
-          <p>La mejor pagina de accesorios del mundo mundial.</p>
+          <p>Donde compras y vendes todo lo que necesitas para tu zona gamer</p>
         </div>
 
         <hr className="clearfix w-100 d-md-none pb-0" />
@@ -38,10 +38,10 @@ const Footer = () => (
     </div>
 
     <div className="footer-copyright text-center py-3">
-      © 2020 Copyright:
-      <a href="https://google.com/" className="td-none text-dark">
+      © 2023 Copyright:
+      <a href="https://gamezonesite.netlify.app/" className="td-none text-dark">
         {' '}
-        Gamezone.com
+        GameZone Marketplace
       </a>
     </div>
   </footer>

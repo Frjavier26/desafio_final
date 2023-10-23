@@ -4,12 +4,11 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Figure from 'react-bootstrap/Figure';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Context } from '../Context';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from '../components/Dashboard';
-import { useContext } from 'react';
-import { Context } from '../Context';
 
 function AddItem() {
   const navigate = useNavigate();
@@ -22,19 +21,16 @@ function AddItem() {
     try {
       const { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
-      console.log('Ejecuta el Try de getProductos');
-      console.log('Data: ', data);
     } catch ({ message }) {
-      alert(message + ' 🙁');
+      alert(
+        'Hubo un error al intentar obtener los productos en venta, intenta nuevamente más tarde.'
+      );
       console.log(message);
     }
   };
 
   const handleSetProducto = ({ target: { value, name } }) => {
-    const field = {};
-    field[name] = value;
-    setProducto({ ...producto, ...field });
-    console.log(field);
+    setProducto({ ...producto, [name]: value });
   };
 
   const registrarProducto = async () => {
@@ -50,13 +46,11 @@ function AddItem() {
       alert('Producto registrado con éxito');
       navigate('/myItems');
     } catch (error) {
-      alert('Algo salió mal ...');
-      console.log(error);
+      alert(
+        'Hubo un error al intentar crear tu producto, intenta nuevamente más tarde.'
+      );
+      console.log(error.message);
     }
-  };
-
-  const refreshPage = () => {
-    window.location.reload();
   };
 
   return (
@@ -69,7 +63,7 @@ function AddItem() {
         <Form onSubmit={registrarProducto}>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridText">
-              <Form.Label>Ingresa tu nombre de Producto</Form.Label>
+              <Form.Label>Ingresa el nombre de tu producto</Form.Label>
               <input
                 value={producto.product_name}
                 className="form-control"
@@ -98,7 +92,7 @@ function AddItem() {
                 <Figure.Image
                   width={100}
                   height={100}
-                  //alt="Imagen del producto"
+                  alt="Imagen"
                   src={producto.url}
                   className="m-0 p-0"
                 />
@@ -114,7 +108,7 @@ function AddItem() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Descripcion breve de tu producto</Form.Label>
+            <Form.Label>Descripción breve de tu producto</Form.Label>
             <Form.Control
               value={producto.short_description}
               className="form-control"
@@ -127,7 +121,7 @@ function AddItem() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Descripcion formal</Form.Label>
+            <Form.Label>Descripción completa de tu producto</Form.Label>
             <Form.Control
               value={producto.long_description}
               className="form-control"
@@ -140,7 +134,7 @@ function AddItem() {
           </Form.Group>
           <div className="d-flex justify-content-between">
             <Button variant="info" onClick={registrarProducto}>
-              Agrega tu Producto
+              Agrega tu producto
             </Button>
 
             <Button

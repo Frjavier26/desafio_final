@@ -24,11 +24,10 @@ export const Provider = ({ children }) => {
     try {
       const { data } = await axios.get(urlServer + endpoint);
       setDatos(data);
-      console.log('Ejecuta el Try de getProductos');
-      console.log('Data de productos: ', data);
-      console.log('Estado datos: ', datos);
     } catch ({ message }) {
-      alert(message + ' 🙁');
+      alert(
+        'Hubo un error al intentar obtener los productos en venta, intenta nuevamente más tarde.'
+      );
       console.log(message);
     }
   };
@@ -41,8 +40,6 @@ export const Provider = ({ children }) => {
 
   function verDetalle(pid) {
     const filteredProduct = datos.filter((el) => el.id == pid);
-    console.log('datos en verDetalle: ', datos);
-    console.log('filteredproduct: ', filteredProduct);
     return (
       setSelectedProduct([filteredProduct[0]]),
       navigate(`/productos/${filteredProduct[0].id}`)
@@ -51,10 +48,7 @@ export const Provider = ({ children }) => {
 
   function editarProducto2(pid) {
     const filteredProduct = datos.filter((el) => el.id == pid);
-    console.log('datos en verDetalle: ', datos);
-    console.log('filteredproduct: ', filteredProduct);
     setSelectedProduct([filteredProduct[0]]);
-    console.log('selected product: ', selectedProduct);
     navigate(`/editItem`);
   }
 

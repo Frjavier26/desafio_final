@@ -1,28 +1,23 @@
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Context } from '../Context';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Dashboard from '../components/Dashboard';
-import { useContext } from 'react';
-import { Context } from '../Context';
 
 function EditProfile() {
   const navigate = useNavigate();
   const { usuarioLogeado, goToMyItems, urlServer } = useContext(Context);
+
   const [usuario, setUsuario] = useState({
     name: `${usuarioLogeado.user_name}`,
     lastName: `${usuarioLogeado.user_lastname}`,
   });
 
   const handleSetUsuario = ({ target: { value, name } }) => {
-    /*const field = {};
-    field[name] = value;
-    setUsuario({ ...usuario, ...field });*/
     setUsuario({ ...usuario, [name]: value });
-    console.log(`${name}`, value);
-    console.log('usuario: ', usuario);
   };
 
   const actualizarUsuario = async () => {
@@ -33,10 +28,12 @@ function EditProfile() {
     };
     try {
       await axios.put(urlServer + endpoint, usuario, { headers });
-      alert('Usuario actualizado con exito');
+      alert('Usuario actualizado con éxito');
       navigate('/MyItems');
     } catch (error) {
-      alert('Algo salió mal ...');
+      alert(
+        'Hubo un error al intentar modificar tus datos de usuario, intenta nuevamente más tarde.'
+      );
       console.log(error);
     }
   };
