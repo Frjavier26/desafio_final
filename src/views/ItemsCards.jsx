@@ -107,7 +107,7 @@ const ItemsCards = () => {
                       value={p.id}
                       onClick={(e) => {
                         eliminarProducto(e.target.value);
-                        refreshPage();
+                        //refreshPage();
                       }}
                     >
                       Eliminar{'   '}
